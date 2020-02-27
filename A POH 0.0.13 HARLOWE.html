@@ -74,11 +74,14 @@ tw-passage span.stat{
 }
 
 tw-link{
-	color: #0000A0;
+	color: #CD853F;
 }
 
+tw-link.visited{
+	color: #65401a;
+}
 tw-link:hover{
-	color: #800080;
+	color: #8e5925;
 }
 
 /* to disable undo button
@@ -615,9 +618,7 @@ div.stats{
 
 
 
-</script><tw-passagedata pid="1" name="Start" tags="author:JeremiahMcCall" position="1167,266" size="100,100">(set: $showFooter to true)It is the year of the consuls, (print: $consularYears&#39;s $yearIndex), $auc years since the the city of Rome was founded by your ancestors. You have just turned $age and entered the ranks of the &lt;i&gt;iuniores&lt;/i&gt;, as the Romans call men less than 46 years old. Filled with tales about the dignity of your family and hoping for a life of distinction for yourself and for the greater glory of the Aemilii Barbati, you set your sights on achieving political rank. But first you must consider the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decem stipendia.&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;ten military campaigns required to run for office.&lt;/em&gt;&quot;)
-
-[[Serve with the army for a year-&gt;First Army Service]]
+</script><tw-passagedata pid="1" name="Start" tags="author:JeremiahMcCall" position="1167,267" size="100,100">(set: $showFooter to true)It is the year of the consuls, (print: $consularYears&#39;s $yearIndex), $auc years since the the city of Rome was founded by your ancestors. You have just turned $age and entered the ranks of the &lt;i&gt;iuniores&lt;/i&gt;, as the Romans call men less than 46 years old. Filled with tales about the dignity of your family and hoping for a life of distinction for yourself and for the greater glory of the Aemilii Barbati, you set your sights on achieving political rank. But first you must consider the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decem stipendia&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;ten military campaigns required to run for office &lt;/em&gt;&quot;) and [[serve with the army-&gt;First Army Service]] for a year.
 
 
 </tw-passagedata><tw-passagedata pid="2" name="OLD Player Stats" tags="" position="1898,82" size="100,100">(set: $showFooter to false)&lt;b&gt;$name, $age&lt;/b&gt;
@@ -643,31 +644,18 @@ div.stats{
 
 &lt;!-- At the start, the values in the three categories, virtus, oratory, dignitas, and popularity have no range, though it seems like elsewhere I am adding and subtracting as if it were a 1-10 range. as of 11/8 it seemed like comitting to a starting range would be a good idea. --&gt;
 &lt;!-- By 11/17 I was thinking more of a role-playing game and having a series of stats that made encounters more or less likely--&gt;</tw-passagedata><tw-passagedata pid="3" name="Run for Office" tags="" position="1028,420" size="100,100">&lt;span class=&quot;important&quot;&gt;Dreams.&lt;/span&gt; You dream of your political ascent culminating when your (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;auctoritas&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;authority&lt;/em&gt;&quot;)(cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;dignitas&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;personal and family dignity&lt;/em&gt;&quot;) command the respect of all from the poorest of Roman citizens to the most prestigious of the senators and everyone in between. 
-[&lt;br&gt;[[Run for Office-&gt;First Election]] ]</tw-passagedata><tw-passagedata pid="4" name="First Army Service" tags="" position="1436,340" size="100,100">&lt;span class=&quot;important&quot;&gt;War&lt;/span&gt; is a fact of life for a Roman. Your first year of military service begins with a campaign against the Gauls. As an (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;eques,&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;a member of the cavalry class,&lt;/em&gt;&quot;) your job is to scout and forage ahead and behind the army as it marches. In battle, you and your equestrian comrades must defend the army&#39;s flanks from enemy cavalry and seize opportunities to  harry the flanks of the enemy infantry.
+[&lt;br&gt;[[Run for Office-&gt;First Election]] ]</tw-passagedata><tw-passagedata pid="4" name="First Army Service" tags="" position="1436,338" size="100,100">&lt;span class=&quot;important&quot;&gt;War&lt;/span&gt; is a fact of life for a Roman. Your first year of military service begins with a campaign against the Gauls. As an (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;eques,&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;a member of the cavalry class,&lt;/em&gt;&quot;) your job is to scout and forage ahead and behind the army as it marches. In battle, you and your equestrian comrades must defend the army&#39;s flanks from enemy cavalry and seize opportunities to  harry the flanks of the enemy infantry.
 
-Step by measured step, the legions have penetrated deep into the hilly forests of north Italy, on an expedition to punish the Gauls for attacking one of Rome&#39;s northernmost colonies. You are sent on a scouting expedition to look for signs of enemy forces along with the commander of your (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;turma&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;ten man cavalry squad&lt;/em&gt;&quot;). You come across a squad of Gallic cavalry who appear to be foraging. One of them spies your group, wheels his horse and canters closer. Not more than a few hundred feet off [[the Gaul-&gt;Gaul Desc]] bellows a challenge, a duel with your best warrior. Several older, more experienced troopers clamor eagerly for your (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decurio&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;squad commander&lt;/em&gt;&quot;) to select them for the duel.
-
-
-[[Force the issue: ride off to battle the Gaul-&gt;You Duel Gaul]]
-[[Volunteer to battle the Gaul but do not insist-&gt;Maybe Duel Gaul]]
-[[Let the more experienced soldiers sort it out; keep quiet-&gt;Another Duels Gaul]]
+Step by measured step, the legions have penetrated deep into the hilly forests of north Italy, on an expedition to punish the Gauls for attacking one of Rome&#39;s northernmost colonies. You are sent on a scouting expedition to look for signs of enemy forces along with the commander of your (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;turma&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;ten man cavalry squad&lt;/em&gt;&quot;). You come across a squad of Gallic cavalry who appear to be foraging. One of them spies your group, wheels his horse and canters closer. Not more than a few hundred feet off, [[the Gaul-&gt;Gaul Desc]] bellows a challenge, a duel with your best warrior. Several older, more experienced troopers clamor eagerly for your (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decurio&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;squad commander&lt;/em&gt;&quot;) to select them for the duel. You could force the issue and ride off to [[battle the Gaul-&gt;You Duel Gaul]]. You could volunteer to battle the Gaul but leave the decision [[up to your commander-&gt;Maybe Duel Gaul]]. Or you could keep quiet and let the [[more experienced soldiers-&gt;Another Duels Gaul]]  sort it out.
 
 (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Monomachies, single combats, are a well attested tradition among the Roman aristocracy. This particular fictional occurrence is inspired by the stories of Titus Manlius Torquatus, Marcus Valerius Corvus, and the son of Titus Manlius Torquatus of the same name (Liv. 7.10; 7.26; 8.7)&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="5" name="First Election" tags="" position="753,388" size="100,100">[[Run for tribune of the plebs CURRENTLY A DEAD END-&gt;Tribune]]
 [[Run for curule aedile-&gt;Aedile Campaign]]</tw-passagedata><tw-passagedata pid="6" name="Gaul Desc" tags="" position="1607,262" size="100,100">&lt;span class=&quot;important&quot;&gt;A mountain&lt;/span&gt; of man, and you marvel that his horse can carry the load. No easy foe, this one, though his ornate armor looks more decorative than practical. 
-(link:&quot;Return to your story&quot;)[(goto: (history: )&#39;s last)]</tw-passagedata><tw-passagedata pid="7" name="You Duel Gaul" tags="" position="1294,499" size="100,100">(if: $impetuous is true)[There is no way to convince the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decurio&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;squad commander&lt;/em&gt;&quot;) to choose you over your comrades and so, impetuously, you urge your horse forward and veer from the turma, heading to meet the Gaul. Your comrades are too shocked for words. You do not doubt, however that your decurio will have words for you and more should you survive the morning.] The Gaul sees you break away from your squad and rides toward you. There are seconds to spare.(set: $outcome to (Random:1,3))(if: $outcome &gt; 2)[ From a distance you would have though impossible, he launches his javelin. It is your last thought as the shaft penetrates your shield and you.
-&lt;br&gt;[[My funeral]]](else:)[ Wheeling and dodging, cavalry lance darting in for quick strikes, you keep your opponent uncertain. Then, a lucky strike and a missed parry. You dispatch the Gaul, a deed that earns you a reputation for &lt;i&gt;virtus&lt;/i&gt; (set: $virtus+=2). Your commanding officer does not have you executed for fighting without orders, but does put you on latrine digging duties for quite some time, to teach you about proper military discipline.
-[[Continue your service-&gt;FirstBattle Start]]]</tw-passagedata><tw-passagedata pid="8" name="Maybe Duel Gaul" tags="" position="1600,498" size="100,100">The (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decurio&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;squad commander&lt;/em&gt;&quot;) has no lack of volunteers. (set: $outcome to (Random:1,3))(if: $outcome is 3)[He looks at you, volunteering but not overly eager to fight amidst your older, more enthusiastic comrades. &#39;What about it, soldier? Are you up for this or shall I let one of these lot have a go? 
-[[They have seniority; let one of them-&gt;Another Duels Gaul]]
-(link: &quot;Yes&quot;)[(set: $impetuous to false)(goto: &quot;You Duel Gaul&quot;)]]
-(else:)[Eyeing the courageous youths, he selects one who veers off to meet the Gaul 
-(link: &quot;Continue&quot;)[(goto: &quot;Another Duels Gaul&quot;)]]
-</tw-passagedata><tw-passagedata pid="9" name="Another Duels Gaul" tags="" position="1453,498" size="100,100">&lt;span class=&quot;important&quot;&gt;Cavalryman&lt;/span&gt; Atilius and the Gallic warrior pass one other and strike, each splintering spear against shield. They wheel about and approach again. This time when the two close, they stop. A flurry of thrusts, cuts, and shield counters follow. 
+(link:&quot;Return to your story&quot;)[(goto: (history: )&#39;s last)]</tw-passagedata><tw-passagedata pid="7" name="You Duel Gaul" tags="" position="1292,499" size="100,100">(if: $impetuous is true)[There is no way to convince the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decurio&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;squad commander&lt;/em&gt;&quot;) to choose you over your comrades and so, impetuously, you urge your horse forward and veer from the turma, heading to meet the Gaul. Your comrades are too shocked for words. You do not doubt, however that your decurio will have words for you and more should you survive the morning.] The Gaul sees you break away from your squad and rides toward you. There are seconds to spare.(set: $outcome to (Random:1,3))(if: $outcome &gt; 2)[ From a distance you would have though impossible, he launches his javelin. It is your last thought as the shaft penetrates your shield and you. Your [[funeral-&gt;My funeral]] awaits.]
+(else:)[ Wheeling and dodging, cavalry lance darting in for quick strikes, you keep your opponent uncertain. Then, a lucky strike and a missed parry. You dispatch the Gaul, a deed that earns you a reputation for &lt;i&gt;virtus&lt;/i&gt; (set: $virtus+=2). Your commanding officer does not have you executed for fighting without orders, but does put you on latrine digging duties for quite some time, to teach you about proper military discipline.You [[return to the army-&gt;FirstBattle Start]] with the scouting report.]</tw-passagedata><tw-passagedata pid="8" name="Maybe Duel Gaul" tags="" position="1600,498" size="100,100">The (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decurio&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;squad commander&lt;/em&gt;&quot;) has no lack of volunteers. (set: $outcome to (Random:1,3))(if: $outcome is 3)[He looks at you, ready but not overly eager to fight when your older, more enthusiastic comrades clamor for action. &#39;What about it, soldier? Are you up for this or shall I let one of these lot have a go? You can respond that the others have seniority so [[let one of them-&gt;Another Duels Gaul]] fight the Gaul, or you can (link: &quot;accept the challenge.&quot;)[(set: $impetuous to false)(goto: &quot;You Duel Gaul&quot;)]](else:)[Eyeing the courageous youths, he selects one who veers off to [[meet the Gaul.-&gt;Another Duels Gaul]]]
+</tw-passagedata><tw-passagedata pid="9" name="Another Duels Gaul" tags="" position="1454,496" size="100,100">&lt;span class=&quot;important&quot;&gt;Cavalryman&lt;/span&gt; Atilius and the Gallic warrior pass one other and strike, each splintering spear against shield. They wheel about and approach again. This time when the two close, they stop. A flurry of thrusts, cuts, and shield counters follow. 
 
 But then:
-(either: &quot;With a mighty slice, the Gaul cleaves into Atilius&#39; neck at the clavicle. He falls, blood spraying, silenced forever. The ill omen is clear and your decurion orders your squad back to the Roman army, so that you can report the Gallic movements to your commander.&quot;, &quot;Atilius seizes his chance and cuts deeply into the Gaul&#39;s side. The mountainous man falls from his horse and Atilius jumps to the ground, finishing the grim business. Dismayed by the death of their finest, the Gallic cavalry scatter out of sight. And so your squad heads back to the army to report.&quot;)
-
-
-[[Continue your service-&gt;FirstBattle Start]]
+(either: &quot;With a mighty slice, the Gaul cleaves into Atilius&#39; neck at the clavicle. He falls, blood spraying, silenced forever. The ill omen is clear and your decurion [[orders your squad back-&gt;FirstBattle Start]] to the Roman army, so that you can report the Gallic movements to your commander.&quot;, &quot;Atilius seizes his chance and cuts deeply into the Gaul&#39;s side. The mountainous man falls from his horse and Atilius jumps to the ground, finishing the grim business. Dismayed by the death of their finest, the Gallic cavalry scatter out of sight. And so your squad [[heads back to the army-&gt;FirstBattle Start]] to report.&quot;)
 </tw-passagedata><tw-passagedata pid="10" name="Tribune" tags="" position="446,515" size="100,100">A time for taking stock of your achievements. After your years of campaigning (if: $oratory &gt; 0)[and service as an advocate] you have this to show:
 {(if: $virtus &gt; 0)[You have achieved a reputation for virtus (&lt;em&gt;&lt;b&gt;virtus: &lt;/b&gt;&lt;/em&gt;$virtus.]
 (if: $oratory &gt; 0)[You have acquired some skill at oratory: (&lt;em&gt;&lt;b&gt;oratory: &lt;/b&gt;&lt;/em&gt;$oratory.]
@@ -684,31 +672,27 @@ End of the game, for now
 [[Balance your actions to accomodate both the powerful and the commoners-&gt;Tribune Balance]]--&gt;</tw-passagedata><tw-passagedata pid="11" name="Tribune Ingratiate" tags="" position="308,418" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="12" name="Tribune for the Powerful" tags="" position="290,553" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="13" name="Tribune Balance" tags="" position="306,711" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="14" name="FirstBattle Start" tags="" position="1364,646" size="100,100">&lt;span class=&quot;important&quot;&gt;The Gauls&lt;/span&gt; have clearly mustered a warband, and, a day later, they camp in a sizeable plain, perhaps a mile from you. They make no effort to conceal themselves and clearly hope to provoke your army to a full battle. So far this campaign has been a success, with casualties few and far between from the skirmishes that have broken out regularly with the enemy. You share the sentiments of most of your army, that a decisive clash of arms will produce a Roman victory and end the Gallic menace, at least for the moment. The consul commanding your army is eager to smash the Gauls and win the type of &lt;em class=&#39;term&#39;&gt;gloria&lt;/em&gt; that can only come from victory in battle.
 &lt;br&gt;Orders filter down through the chain of command, consul to tribunes, tribunes to decuriones. You and the rest of the Roman cavalry will occupy the leftmost wing of the army, your standard position. Your camp slave helps you with your equipment and horse, and you ride to your post as the officers bark orders. [[Then, you wait...-&gt;FirstBattle Finish]]
 
-</tw-passagedata><tw-passagedata pid="15" name="FirstBattle Finish" tags="" position="1513,643" size="100,100">&lt;span class=&quot;important&quot;&gt;Nothing compares to the experience of battle.&lt;/span&gt; Certainly not in your short life. Neither do the old men&#39;s stories capture the gritty reality of war. The stench of blood, sweat, and urine fills the air. The shouts and grunts of men, the clacking and clanging of sword and spear on shield and armor, the screams of the wounded and the dying.
+</tw-passagedata><tw-passagedata pid="15" name="FirstBattle Finish" tags="" position="1490.6666666666665,763.0000000000001" size="100,100">&lt;span class=&quot;important&quot;&gt;Nothing compares to the experience of battle.&lt;/span&gt; Certainly not in your short life. Neither do the old men&#39;s stories capture the gritty reality of war. The stench of blood, sweat, and urine fills the air. The shouts and grunts of men, the clacking and clanging of sword and spear on shield and armor, the screams of the wounded and the dying.
 
 You keep yourself focused on the orders of your squadron commander. When he orders the squad to ride, you ride. When he signals to wheel, you wheel. After a distance you find yourself harrassing the enemy infantry on their flank. From a higher seat you lash out at the man in front of you, stabbing with spear and bashing with shield. Before long the enemy breaks and flees the battlefield. Rome has carved another victory out of the Gauls.
-You have served the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;Res Publica&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;Republic&lt;/em&gt;&quot;) well. 
+You have served the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;Res Publica&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;Republic&lt;/em&gt;&quot;) well. [[The year passes...-&gt;End of Year]] 
 (set: $stipendia += 1)
-[[The year goes by.-&gt;End of Year]] 
+
 </tw-passagedata><tw-passagedata pid="16" name="Begin Aedileship" tags="" position="641,1438" size="100,100">Though there will certainly be many issues requiring your attention as aedile this year, you have made it a point to focus your attention, and hopefully gain distinction for $aedGoal1 and $aedGoal2
 
 CURRENT END OF GAME
 
-&lt;!--DATA--&gt;</tw-passagedata><tw-passagedata pid="17" name="End of Year" tags="" position="1186,1190" size="200,100">{(set: $age += 1)
+&lt;!--DATA--&gt;</tw-passagedata><tw-passagedata pid="17" name="End of Year" tags="" position="1186,1190" size="200,100">{(set: $age += 1)(set: $advocacy to false)(set: $service to false)
 &lt;span class=&quot;important&quot;&gt;A year has passed.&lt;/span&gt; Now $age years old,  (if: $stipendia is 1)[you have served for 1 year](else:)[you have served as a soldier $stipendia campaigns] and are a step closer to your goal of holding office and joining the senate.}
 
-{(if: $stipendia &lt; 10)[You still must serve as a soldier for (set: $temp to 10 - $stipendia) $temp campaigns before you can run for high office (if: $age &lt; 21)[, and you are not quite old enough to practice law]]}
-&lt;/br&gt;What will you do next year?
+{(if: $stipendia &lt; 10)
+[You still must (link: &quot;serve as a soldier&quot;)[(set: $yearIndex+=1)(set: $auc+=1)(set: $service to true)(goto: &quot;New Year&quot;)
+for (set: $temp to 10 - $stipendia) $temp campaigns before you can run for high office]
 
-{(set: $advocacy to false)
-(set: $service to false)
+(if: $age &lt;= 20)[, and you are not quite old enough to practice law.]
+(else-if: $age &gt; 20)[ but you can also (link: &quot;work as an advocate&quot;)[((set: $auc+=1)(set: $yearIndex+=1)(set: $advocacy to true)(goto: &quot;New Year&quot;)]] this year. (if: $stipendia &gt;= 10)[ You are eligible to seek (link: &quot;a political office&quot;)[(goto: &quot;Run for Office&quot;)]for the coming year.]]}
 
-(if: $age &gt; 20)[(link: &quot;Serve as an advocate&lt;/br&gt;&quot;)[((set: $auc+=1)(set: $yearIndex+=1)(set: $advocacy to true)(goto: &quot;New Year&quot;)]]
-(link: &quot;Serve in another campaign&quot;)[(set: $yearIndex+=1)(set: $auc+=1)(set: $service to true)(goto: &quot;New Year&quot;)]}
-
-(if: $stipendia &gt;= 10)[(link: &quot;Seek one of next year&#39;s open political offices&quot;)[(goto: &quot;Run for Office&quot;)]]
-
-&lt;!--note that election to office happened at the end of the year before service started--&gt;</tw-passagedata><tw-passagedata pid="18" name="My funeral" tags="" position="1723,957" size="100,100">(set: $showFooter to false)
+&lt;!--note that election to office happened at the end of the year before service started--&gt;</tw-passagedata><tw-passagedata pid="18" name="My funeral" tags="" position="1701.3333333333333,798.6666666666666" size="100,100">(set: $showFooter to false)
 &lt;span class=&quot;important&quot;&gt;A funeral worthy of an aristocrat&lt;/span&gt;. You have that, at least. According to Roman custom, actors take on the parts of the most distinguished of your ancestors, retalling their exploits and listing their honors to the public. When it comes to you, the eulogy is distinguished but unembellished.
 
 $pcName, $age
@@ -753,9 +737,7 @@ It is customary for a young Roman such as yourself to frequent the forum, delive
 
 Your uncle, Lucius Aemilius is a skilled orator. Though now retired from pleading cases, he took great pleasure droning on about the legal system and his great victories in the forum. In the process you learned both how Roman law works, and that Uncle Lucius could turn a simple anecdote into an epic.
 
-As an advocate you can assist clients by defending them in the law courts. (link: &quot;(Explain mechanics)&quot;)[(goto: &quot;Explain Advocacy Mechanics&quot;)]. Winning cases will increase your skill at oratory. Winning risky cases will raise your skill at oratory even more. Even losing cases may increase your skill, though your popularity may suffer.
-
-[[Look for clients-&gt;Advocacy - Choose a Case]]
+As an advocate you can assist clients by defending them in the law courts. (link: &quot;(Explain mechanics)&quot;)[(goto: &quot;Explain Advocacy Mechanics&quot;)]. Winning cases will increase your skill at oratory. Winning risky cases will raise your skill at oratory even more. Even losing cases may increase your skill, though your popularity may suffer.Excited by the opportunity, you [[look for clients-&gt;Advocacy - Choose a Case]]
 
 (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Plut. Cato Mai. 1 says that the famed Marcus Porcius Cato as a young man served as an advocate in courts of local towns. Polyb. 31.23.11 says that the young Publius Cornelius Scipio Aemilianus told Polybius that other Romans looked down on him because he did not speak in the law courts.&lt;/em&gt;]
 ](else:)[(goto: &quot;Advocacy - Choose a Case&quot;)]</tw-passagedata><tw-passagedata pid="22" name="Risky Advocacy" tags="" position="4101,3096" size="100,100">You take the risky cases, hoping to make a bigger name for yourself in the law courts. The cases you handle range from (either: &quot;a charge of bribery in a local election&quot;,&quot;a murder charge&quot;,&quot;a man who has been wrongfully declared mad by his kin who hope to seize his property.&quot;) to (either: &quot;a client who claimed to have been harmed by his patron&quot;,&quot;a man accused of testifying falsely at a trial&quot;)
@@ -776,7 +758,7 @@ This year you will serve as a military tribune, a critical link in the chain of 
 Will you lead from the front, taking all the risks your men take and looking to distinguish yourself as a warrior-soldier? Or will you adopt a more conservative--and life preserving approach?
 
 (link: &quot;Take risks to prove your virtus&quot;)[(set: $riskyService to true)(set: $yourBattleOutcome to (random: 1,100))(goto: &quot;Battle&quot;)]
-(link: &quot;Do your duty, but avoid unnecessary risks&quot;)[(set: $riskyService to false)(set: $yourBattleOutcome to (random: 1,100))(goto: &quot;Battle&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Aedile Campaign" tags="" position="565,559" size="200,100">{(set: $yourElectability to  $popularity + $virtus + $oratory + $dignitas)A time for taking stock of your achievements. After your years of campaigning (if: $oratory &gt; 0)[and service as an advocate] you have (if: $yourElectability &gt; 15)[a good chance](else-if: $yourElectability &lt; 15 and &gt; 10)[slight chance](else:)[little chance] of winning election.}
+(link: &quot;Do your duty, but avoid unnecessary risks&quot;)[(set: $riskyService to false)(set: $yourBattleOutcome to (random: 1,100))(goto: &quot;Battle&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Aedile Campaign" tags="" position="578,557" size="200,100">{(set: $yourElectability to  $popularity + $virtus + $oratory + $dignitas)A time for taking stock of your achievements. After your years of campaigning (if: $oratory &gt; 0)[and service as an advocate] you have (if: $yourElectability &gt; 15)[a good chance](else-if: $yourElectability &lt; 15 and &gt; 10)[slight chance](else:)[little chance] of winning election.}
 &lt;!--DEBUG ELECTABILITY IS $yourElectability--&gt;
 It is time to try your hand in the political arena and run for the curule aedileship. The first step along the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;cursus honorum&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;path of offices that a Roman aristocrat might aspire to climb&lt;/em&gt;&quot;) 
 
@@ -1362,13 +1344,11 @@ You have successfully defended your client and improved your oratory a bit (set:
 (else:)[You have failed to persuade the judge. As a result $clientPraenomen $clientNomen must (print: $caseLost&#39;s $caseIndex) $plaintiffPraenomen $plaintiffNomen. Still, you have improved your skill at oratory a bit.(set: $oratory += 1)
 ]&lt;br&gt;You plead a few more cases this year, but nothing as significant as this one.
 &lt;br&gt;
-[[End of Year]]]
+And so the [[year passes.-&gt;End of Year]]]
 }
 
 
-</tw-passagedata><tw-passagedata pid="51" name="Decline Case" tags="" position="2544,1087" size="100,100">Do you want to look for another client to defend?
-[[Look for another client-&gt;Advocacy - Choose a Case]]
-[[Give up on pleading cases this year-&gt;End of Year]]</tw-passagedata><tw-passagedata pid="52" name="Explain Advocacy Mechanics" tags="" position="2598,374" size="100,100">Cases can be easy, moderate, or difficult to defend and this stat determines the range for the point value representing the strength of the plaintiff&#39;s case. Your defense consists of a random number 1-6 + your current oratory skill. If the sum of the two numbers is greater than the number representing the plaintiff&#39;s case, you will win the lawsuit. Otherwise, you will lose.
+</tw-passagedata><tw-passagedata pid="51" name="Decline Case" tags="" position="2544,1087" size="100,100">Do you want to look for [[another client-&gt;Advocacy - Choose a Case]] to defend, or [[give up-&gt;End of Year]] pleading cases this year?</tw-passagedata><tw-passagedata pid="52" name="Explain Advocacy Mechanics" tags="" position="2598,374" size="100,100">Cases can be easy, moderate, or difficult to defend and this stat determines the range for the point value representing the strength of the plaintiff&#39;s case. Your defense consists of a random number 1-6 + your current oratory skill. If the sum of the two numbers is greater than the number representing the plaintiff&#39;s case, you will win the lawsuit. Otherwise, you will lose.
 
 (link:&quot;Return to your story&quot;)[(goto: (history: )&#39;s last)]</tw-passagedata><tw-passagedata pid="53" name="Sidebar Footer" tags="footer" position="660,177" size="100,100">(prepend: ?sidebar)[&lt;div&gt;(if: $showFooter)[&lt;span class=&#39;stat&#39;&gt;stats&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;age&lt;/strong&gt;: $age
 &lt;strong&gt;campaigns&lt;/strong&gt;: $stipendia
@@ -1393,7 +1373,7 @@ aristocratic Roman family, you are $name. That last part, Barbatus, refers to th
 It is the year of the consuls,  you set your sights on achieving political rank. But first you must consider the (link-replace: &quot;&lt;em class=&#39;term&#39;&gt;decem stipendia&lt;/em&gt;.&quot;)[(show: ?decStipendiaDef)]
 
 |decStipendiaDef)[ten military campaigns required before you are eligible to run for offices.]
-</tw-passagedata><tw-passagedata pid="55" name="Code Test - Start with Aedile Election" tags="" position="986,585" size="100,100">(set: $stipendia+= 10)
+</tw-passagedata><tw-passagedata pid="55" name="Code Test - Start with Aedile Election" tags="" position="1029.3333333333333,528.3333333333334" size="100,100">(set: $stipendia+= 10)
 (set:$virtus+=5)
 (set: $oratory+= 5)
 (set: $popularity+= 8)
@@ -1532,11 +1512,11 @@ You ponder the case for a moment, then respond:&lt;br&gt;
 (else_if: $stipendia &gt; 5)
 [(either: &quot;At the age of $age, with $stipendia campaigns under your belt, you have become something of a veteran and you look towards the time when your service will end and you can continue your pursuit of distinction.&quot;,&quot;Over $stipendia campaigns, you have learnt the trade of the soldier, the craft of war. No stranger to the chaos, you join for another term in service to the Republic.&quot;)]
 ]}
-You face a choice. Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the torque from the bloody corpse of the Gaul he had slain&quot;,&quot;Horatius Cocles, who single-handedly defended the bridge across the Tiber from hordes of Etruscans&quot;,&quot;Marcus Valerius Corvus, who followed the omen of the Raven and dispatched the Gallic champion&quot;,&quot;Marcus Claudius Marcellus, who slew an enemy king in a duel of commanders&quot;), (link: &quot;Take risks to prove your virtus&quot;)[(set: $riskyService to true)(goto: &quot;Battle&quot;)] and hope to achieve glorious feats that will win you renown. Or, quite possibly, death.
+You face a choice. Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the torque from the bloody corpse of the Gaul he had slain&quot;,&quot;Horatius Cocles, who single-handedly defended the bridge across the Tiber from hordes of Etruscans&quot;,&quot;Marcus Valerius Corvus, who followed the omen of the Raven and dispatched the Gallic champion&quot;,&quot;Marcus Claudius Marcellus, who slew an enemy king in a duel of commanders&quot;), you can (link: &quot;take risks&quot;)[(set: $riskyService to true)(goto: &quot;Battle&quot;)] to prove your virtus and hope to achieve glorious feats that will win you renown. Or, quite possibly, death.
 
 or
 
-You can simply (link: &quot;do your duty, but avoid unnecessary risks.&quot;)[(set: $riskyService to false)(goto: &quot;Battle&quot;)] You will fulfill your obligations as a Roman cavalryman to the best of your ability but refuse to get swept away in the exaggerations of the old tales and get yourself killed without good reason.
+You can simply do your duty but (link: &quot;avoid unnecessary risks.&quot;)[(set: $riskyService to false)(goto: &quot;Battle&quot;)] You will fulfill your obligations as a Roman cavalryman to the best of your ability but refuse to get swept away in the exaggerations of the old tales and get yourself killed without good reason.
 
 
 
@@ -1577,61 +1557,7 @@ Of course, the gods must be honored in the right ways at the right times, or the
 Liv. 39.14 when the senate decides to repress the cult of Bacchus in Rome, aediles are charged with the task of repression
  &lt;/em&gt;]
  Finally, Though not normally part of the purview of aediles, you can look for ways to promote the interests of the common people by providing them greater access to often difficult to obtain government and religious information, social opportunities such as seating at games, theaters, and festivals, and the like.
- (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;em&gt;The classic example of a populist aedile is Gnaeus Fulvius, aed. 304. According to Liv. 9.46, Fulvius had the civil laws, formerly kept away from the populace and in the possession of the priests, openly published for all to see. He also had a calendar displayed in multiple places in the forum so that everyone could know wat days were permitted for trials, assemblies, market, etc In Liv. 34.44 The senate orders the aediles to preserve seating for the senators separate from other Romans. Plut. Gaius Gracchus 12 indicates Gracchus as tribune ordered seats that other officials had built to rent out for a forum gladiatorial show to be removed so the poor could see the show -- I infer an aedile could have done something like this.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="62" name="DEPRECATED Service Outcome" tags="" position="2041,1619" size="100,100">&lt;!--Need to rewrite this any death in cavalry combat is already handled and filtered out so here just check for virtus and rewards--&gt;
-(if: $romanDefeat is false) &lt;!--Romans did not lose the battle--&gt;
-[
-	(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
-	[
-		(if: $yourBattleOutcome &lt;= 20)&lt;!--20% chance to die--&gt;
-		[Though the Romans prove victorious (if: $milTribune is true)[and you command boldly](else:)[and you serve heroically], the thrust of an enemy spear ends your life[[My funeral]] 
-		]
-		(if: ($yourBattleOutcome &gt; 20) and ($yourBattleOutcome &lt;= 70))
-		[The Romans win the battle, (if: $milTribune is true)[and you command boldly](else:)[and you serve heroically], increasing your reputation for virtus(set: $virtus+=1)(set: $stipendia += 1)[[End of Year]]
-		]
-		(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
-		[The Roman victory is sealed and you win renown for your (if: $milTribune is true)[stalwart leadership](else:)[heroic service]. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, and increase your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1)[[End of Year]]
-		]
-	]
-	(else-if: $riskyService is false)&lt;!--PC picked risky service--&gt;
-	[
-		(if: $yourBattleOutcome &lt;= 10)&lt;!--10% chance to die--&gt;
-		[Though the Romans prove victorious (if: $milTribune is true)[and you command capably](else:)[and you do your duty], an enemy blade snatches your life away.[[My funeral]] ]
-		(if: ($yourBattleOutcome &gt; 10) and ($yourBattleOutcome &lt;= 90))
-		[The Romans have won and you have done your duty. No more need be said (set: $stipendia += 1)[[End of Year]]]
-		(if: $yourBattleOutcome &gt; 90) &lt;!-- Heroic victory--&gt;
-		[The Romans have won, and, when it counted, you served ably, increasing your reputation for virtus (set: $virtus+=1)(set: $stipendia += 1)[[End of Year]]
-		]
-	]
-]
-(else-if: $romanDefeat is true) &lt;!--Romans did lose the battle--&gt;
-[
-	(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
-	[
-		(if: $yourBattleOutcome &lt;= 25)&lt;!--25% chance to die--&gt;
-		[As the Roman army collapses, (if: $milTribune is true)[ you command heorically, protecting your comrades&#39; retreat](else:)[you meet your death riding to save some stranded soldiers]. [[My funeral]] 
-		]
-		(if: ($yourBattleOutcome &gt; 25) and ($yourBattleOutcome &lt;= 70))
-		[Though the Roman army is defeated(if: $milTribune is true)[, you command heroically, protecting your comrades&#39; retreat](else:)[, your fiercesome fighting with the cavalry is noted]. This increases your reputation for virtus.(set: $virtus+=1)(set: $stipendia += 1)
-[[End of Year]]]
-		(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
-		[You are heroic in the midst of defeat, risking your life for your comrades and, as a result, earning the &lt;em&gt;Corona Civica&lt;/em&gt;. Your reputation for virtus and your popularity have increased.(set: $honors&#39;s &quot;Corona Civica&quot; += 1)(set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1)[[End of Year]]]
-	]
-	(if: $riskyService is false)&lt;!--PC picked risky service--&gt;
-	[
-		(if: $yourBattleOutcome &lt;= 15)&lt;!--15% chance to die--&gt;
-			[As the Roman army collapses, (if: $milTribune is true)[ you command are abandoned by your soldiers an slain](else:)[you meet your death at the hands of the $enemyArmy cavalry]. [[My funeral]] ]
-		(if: ($yourBattleOutcome &gt; 15) and ($yourBattleOutcome &lt;= 90))
-		[As the Roman army collapses, you take your place with the fleeing soldiers and somehow make your way to safety.
-[[End of Year]]]
-		(if: $yourBattleOutcome &gt; 90) &lt;!-- Heroic victory--&gt;
-		[Though you had no intention of doing so, you valiantly cover your comrades retreat as the Roman army collapses, increasing your reputation for virtus. (set: $virtus+=1)(set: $stipendia += 1)
-[[End of Year]])]
-	]
-]
-
-
-
-</tw-passagedata><tw-passagedata pid="63" name="OLD SERVICE OUTCOME TEXT" tags="" position="1828,1599" size="100,100">A&lt;!-- Old code with some writing Avoiding risky service has a 1/20 chance of ending in PC death 
+ (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;em&gt;The classic example of a populist aedile is Gnaeus Fulvius, aed. 304. According to Liv. 9.46, Fulvius had the civil laws, formerly kept away from the populace and in the possession of the priests, openly published for all to see. He also had a calendar displayed in multiple places in the forum so that everyone could know wat days were permitted for trials, assemblies, market, etc In Liv. 34.44 The senate orders the aediles to preserve seating for the senators separate from other Romans. Plut. Gaius Gracchus 12 indicates Gracchus as tribune ordered seats that other officials had built to rent out for a forum gladiatorial show to be removed so the poor could see the show -- I infer an aedile could have done something like this.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="62" name="OLD SERVICE OUTCOME TEXT" tags="" position="1828,1599" size="100,100">A&lt;!-- Old code with some writing Avoiding risky service has a 1/20 chance of ending in PC death 
 (if: $riskyService is true)[
 Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the torque from the bloody corpse of the Gaul he had slain&quot;,&quot;Horatius Cocles, who single-handedly defended the bridge across the Tiber from hordes of Etruscans&quot;,&quot;Marcus Valerius Corvus, who followed the omen of the Raven and dispatched the Gallic champion&quot;,&quot;Marcus Claudius Marcellus, who slew an enemy king in a duel of commanders&quot;), you are determined to push yourself to achieve glorious feats that will win you renown. Or, quite possibly, death.
 (set: $outcome to (Random:1,10))(if: $outcome is 1)[ You distinguish yourself in battle, earning the (link-replace: &quot;&lt;em class=&#39;term&#39;&gt;corona civica&lt;/em&gt;&quot;)[civic crown] for saving a fellow citizen&#39;s life. Sadly, the sword stroke meant for him ended your life instead, so you receive the award postumously (set: $honors&#39;s &quot;Corona Civica&quot; += 1)&lt;br&gt;
@@ -1641,7 +1567,7 @@ Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the to
 (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;The exploits that can be listed in this passage of Titus Manlius Torquatus, Marcus Valerius Corvus, and the son of Titus Manlius Torquatus of the same name can be found in Livy 7.10; 7.26; 8.7. Horatius Cocles&#39; exploits are noted by Polybius 6.55. Marcellus&#39; duel with Britomartus and the spolia opima he won is noted in a numer of places including Plutarch, &lt;em&gt;Life of Marcellus&lt;/em&gt;, 6-8.&lt;/em&gt;]
 Risky service has a 1/10 chance of ending in PC death --&gt;] --&gt;
 }
-</tw-passagedata><tw-passagedata pid="64" name="Battle" tags="" position="2256,1414" size="100,100">&lt;!--check the date and generate appropriate enemies--&gt;
+</tw-passagedata><tw-passagedata pid="63" name="Battle" tags="" position="2256,1414" size="100,100">&lt;!--check the date and generate appropriate enemies--&gt;
 {(set: $weirdSpace to &quot; &quot;) This year, (either: &quot;it will be a fight against&quot;, &quot;your legion will be part of the force attacking&quot;, &quot;you and your comrades will revenge an ancient wrong by&quot;)
 (set: $randEnemy to (Random: 1,10))
 
@@ -1698,7 +1624,7 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 
 {
 (link: &quot;And you?&quot;)[
-&lt;!-- debug--&gt; |(if: $romanDefeat is true)[ Romans defeated](else:)[ Romans victorious] Your die roll $yourBattleOutcome|
+&lt;!-- debug |(if: $romanDefeat is true)[ Romans defeated](else:)[ Romans victorious] Your die roll $yourBattleOutcome|--&gt;
 (if: $romanDefeat is false)
 [
 	(if: $milTribune is true)
@@ -1706,23 +1632,23 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 		(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 20)&lt;!--20% chance to die--&gt;
-			[But the day has come when Mars must be paid. You stand at the front of a maniple of principes that is faltering. Bellowing words of command and encouragement you rally the men, then lead them back into battle. Once rallied the maniples to either side stiffen their resolve and push back on the enemy. Your heroic leadership saves the left of the battleline. But your fine armor and your air of command marks you to the enemy and you are dispatched by a spear thrust as you turn back to wave your soldiers on.[[My funeral]] 
+			[But the day has come when Mars must be paid. You stand at the front of a maniple of principes that is faltering. Bellowing words of command and encouragement you rally the men, then lead them back into battle. Once rallied the maniples to either side stiffen their resolve and push back on the enemy. Your heroic leadership saves the left of the battleline. But your fine armor and your air of command marks you to the enemy and you are dispatched by a spear thrust as you turn back to wave your soldiers on. Your [[funeral-&gt;My funeral]] awaits.
 			]
 			(if: ($yourBattleOutcome &gt; 20) and ($yourBattleOutcome &lt;= 70))
-			[The Romans win the battle, and you led your men safely through a number of harrowing encounters with the enemy, increasing your reputation for virtus(set: $virtus+=1)(set: $stipendia += 1) [[End of Year]]
+			[The Romans win the battle, and you led your men safely through a number of harrowing encounters with the enemy, increasing your reputation for virtus(set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
 			]
 			(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
-			[The Roman victory is sealed and you win renown for your stalwart command. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, an act that inspired your men to overcome all hardships. You have increase your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1)[[End of Year]]
+			[The Roman victory is sealed and you win renown for your stalwart command. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, an act that inspired your men to overcome all hardships. You have increase your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
 			]
 		]
 		(else-if: $riskyService is false)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 10)&lt;!--10% chance to die--&gt;
-			[Though the Romans have won the day, Mars is not finished collecting his tribute. You stand at the front of a maniple of principes, bellowing words of command and encouragement. Your heroic leadership pushes the infantry to prevail. But your fine armor and your air of command marks you to the enemy and you are dispatched by a spear thrust as you turn back to wave your soldiers on.[[My funeral]] ]
+			[Though the Romans have won the day, Mars is not finished collecting his tribute. You stand at the front of a maniple of principes, bellowing words of command and encouragement. Your heroic leadership pushes the infantry to prevail. But your fine armor and your air of command marks you to the enemy and you are dispatched by a spear thrust as you turn back to wave your soldiers on. Your [[funeral-&gt;My funeral]] awaits ]
 			(if: ($yourBattleOutcome &gt; 10) and ($yourBattleOutcome &lt;= 90))
-			[The Romans have won and you have done your duty. You lead capably, and do not shirk your responsibilities, but let the men take the greatest risks. No more can or need be said (set: $stipendia += 1)[[End of Year]]]
+			[The Romans have won and you have done your duty. You lead capably, and do not shirk your responsibilities, but let the men take the greatest risks. No more can or need be said. (set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 			(if: $yourBattleOutcome &gt; 90) &lt;!-- Heroic victory--&gt;
-			[Then a day comes when you must rise to the challenge or lose everything. Your section of the battleline wavers, the maniples in reserve balking when they are to relieve the front lines.  Bellowing words of command and encouragement you strengthen their resolve, then personally lead them into battle. Your example has saved the day.  (set: $virtus+=1)(set: $stipendia += 1)[[End of Year]]]
+			[Then a day comes when you must rise to the challenge or lose everything. Your section of the battleline wavers, the maniples in reserve balking when they are to relieve the front lines.  Bellowing words of command and encouragement you strengthen their resolve, then personally lead them into battle. Your example has saved the day.  (set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 		]
 	]
 	(else-if: $milTribune is false)
@@ -1730,23 +1656,23 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 		(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 20)&lt;!--20% chance to die--&gt;
-			[Though the Romans prove victorious, the thrust of an enemy spear ends your life[[My funeral]] 
+			[Though the Romans prove victorious, the thrust of an enemy spear ends your life. Your [[funeral-&gt;My funeral]] awaits. 
 			]
 			(if: ($yourBattleOutcome &gt; 20) and ($yourBattleOutcome &lt;= 70))
-			[The Romans win the battle, increasing your reputation for virtus(set: $virtus+=1)(set: $stipendia += 1) [[End of Year]]
+			[The Romans win the battle, increasing your reputation for virtus.(set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
 			]
 			(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
-			[The Roman victory is sealed and you win renown for your heroic service. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, and increase your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1)[[End of Year]]
+			[The Roman victory is sealed and you win renown for your heroic service. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, and increase your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
 			]
 		]
 		(else-if: $riskyService is false)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 10)&lt;!--10% chance to die--&gt;
-			[Though the Romans prove victorious and you do your duty, an enemy blade snatches your life away.[[My funeral]] ]
+			[Though the Romans prove victorious and you do your duty, an enemy blade snatches your life away. Your [[funeral-&gt;My funeral]] awaits. ]
 			(if: ($yourBattleOutcome &gt; 10) and ($yourBattleOutcome &lt;= 90))
-			[The Romans have won and you have done your duty. No more need be said (set: $stipendia += 1)[[End of Year]]]
+			[The Romans have won and you have done your duty. No more need be said. (set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 			(if: $yourBattleOutcome &gt; 90) &lt;!-- Heroic victory--&gt;
-			[The Romans have won, and, when it counted, you served ably, increasing your reputation for virtus (set: $virtus+=1)(set: $stipendia += 1)[[End of Year]]]
+			[The Romans have won, and, when it counted, you served ably, increasing your reputation for virtus. (set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 		]
 	]
 ]
@@ -1757,23 +1683,23 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 		(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 20)&lt;!--20% chance to die--&gt;
-			[The day has come when Mars must be paid. You stand at the front of a maniple of principes that is faltering. Bellowing words of command and encouragement you rally the men, to no avail, however, as the Roman battleline collapses. Still your heroic leadership allows your men to retreat safely and live to fight another day. You, however, are dispatched by a spear thrust as you turn back to order your soldiers on.[[My funeral]] 
+			[The day has come when Mars must be paid. You stand at the front of a maniple of principes that is faltering. Bellowing words of command and encouragement you rally the men, to no avail, however, as the Roman battleline collapses. Still your heroic leadership allows your men to retreat safely and live to fight another day. You, however, are dispatched by a spear thrust as you turn back to order your soldiers on. Your [[funeral-&gt;My funeral]] awaits.
 			]
 			(if: ($yourBattleOutcome &gt; 20) and ($yourBattleOutcome &lt;= 70))
-			[The Romans lost this battle, and you lead your men in an orderly retreat. Guiding them safely through a harrowing withdrawl, increasing your reputation for virtus(set: $virtus+=1)(set: $stipendia += 1) [[End of Year]]
+			[The Romans lost this battle, and you lead your men in an orderly retreat. Guiding them safely through a harrowing withdrawl, increasing your reputation for virtus.(set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
 			]
 			(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
-			[The Roman defeat is sealed and but you win renown for your stalwart command in adversity. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, an act that inspired your men to cover their fellow soldiers&#39; retreat. You have increased your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1)[[End of Year]]
+			[The Roman defeat is sealed and but you win renown for your stalwart command in adversity. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, an act that inspired your men to cover their fellow soldiers&#39; retreat. You have increased your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
 			]
 		]
 		(else-if: $riskyService is false)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 10)&lt;!--10% chance to die--&gt;
-			[The Romans have lost today, and Mars collects his tribute. You stand at the front of a maniple of principes, bellowing words of command and encouragement. To your credit, you do not turn to flee until your men have first retreated. Still, the enemy spear drives home between your shoulder blades, ending your life[[My funeral]] ]
+			[The Romans have lost today, and Mars collects his tribute. You stand at the front of a maniple of principes, bellowing words of command and encouragement. To your credit, you do not turn to flee until your men have first retreated. Still, the enemy spear drives home between your shoulder blades, ending your life. Your [[funeral-&gt;My funeral]] awaits. ]
 			(if: ($yourBattleOutcome &gt; 10) and ($yourBattleOutcome &lt;= 90))
-			[You lead capably, and do not shirk your responsibilities, but let the men take the greatest risks. When the army is defeated, you join your men in retreat, safely reaching the camp at last (set: $stipendia += 1)[[End of Year]]]
+			[You lead capably, and do not shirk your responsibilities, but let the men take the greatest risks. When the army is defeated, you join your men in retreat, safely reaching the camp at last (set: $stipendia += 1)And so the [[year passes.-&gt;End of Year]]]
 			(if: $yourBattleOutcome &gt; 90) &lt;!-- Heroic service in defeat--&gt;
-			[Then a day comes when you must rise to the challenge or lose everything. The Roman army is wavering in defeat. Your section of the battleline is on the verge of a headlong panic. But your steady words of command and your heroic presence, inspire the men to a fighting withdrawl when all are fleeing around them. Your example has saved many lives, and earned you a greater reputation for virtus.  (set: $virtus+=1)(set: $stipendia += 1)[[End of Year]]]
+			[Then a day comes when you must rise to the challenge or lose everything. The Roman army is wavering in defeat. Your section of the battleline is on the verge of a headlong panic. But your steady words of command and your heroic presence, inspire the men to a fighting withdrawl when all are fleeing around them. Your example has saved many lives, and earned you a greater reputation for virtus.  (set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 		]
 	]
 	(else-if: $milTribune is false)
@@ -1781,24 +1707,23 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 		(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 25)&lt;!--25% chance to die--&gt;
-			[As the Roman army collapses, you meet your death riding to save some stranded soldiers. &lt;br&gt;[[My funeral]] 
+			[As the Roman army collapses, you meet your death riding to save some stranded soldiers. Your [[funeral-&gt;My funeral]] awaits.
 			]
 			(if: ($yourBattleOutcome &gt; 25) and ($yourBattleOutcome &lt;= 70))
-			[Though the Roman army is defeated, your fiercesome fighting with the cavalry is noted. This increases your reputation for virtus.(set: $virtus+=1)(set: $stipendia += 1)&lt;br&gt;
-[[The year draws to a close-&gt;End of Year]]]
+			[Though the Roman army is defeated, your fiercesome fighting with the cavalry is noted. This increases your reputation for virtus.(set: $virtus+=1)(set: $stipendia += 1)
+And so the [[year passes.-&gt;End of Year]]]
 			(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
-			[You are heroic in the midst of defeat, risking your life for your comrades and, as a result, earning the &lt;em&gt;Corona Civica&lt;/em&gt;. Your reputation for virtus and your popularity have increased.(set: $honors&#39;s &quot;Corona Civica&quot; += 1)(set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1)&lt;br&gt;[[The year draws to a close-&gt;End of Year]]]
+			[You are heroic in the midst of defeat, risking your life for your comrades and, as a result, earning the &lt;em&gt;Corona Civica&lt;/em&gt;. Your reputation for virtus and your popularity have increased.(set: $honors&#39;s &quot;Corona Civica&quot; += 1)(set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 		]
 		(if: $riskyService is false)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 15)&lt;!--15% chance to die--&gt;
-			[As the Roman army collapses, you meet your death at the hands of the $enemyArmy cavalry. &lt;br&gt;[[My funeral]] ]
+			[As the Roman army collapses, you meet your death at the hands of the $enemyArmy cavalry. Your [[funeral-&gt;My funeral]] awaits ]
 			(if: ($yourBattleOutcome &gt; 15) and ($yourBattleOutcome &lt;= 90))
 			[As the Roman army collapses, you take your place with the fleeing soldiers and somehow make your way to safety.
-&lt;br&gt;[[The year draws to a close-&gt;End of Year]]]
+&lt;br&gt;And so the [[year passes.-&gt;End of Year]]]
 			(if: $yourBattleOutcome &gt; 90) &lt;!-- Heroic victory--&gt;
-			[Though you had no intention of doing so, you valiantly cover your comrades retreat as the Roman army collapses, increasing your reputation for virtus. (set: $virtus+=1)(set: $stipendia += 1)
-&lt;br&gt;[[The year draws to a close-&gt;End of Year]])]
+			[Though you had no intention of doing so, you valiantly cover your comrades retreat as the Roman army collapses, increasing your reputation for virtus. (set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 		]
 	]
 ]	
@@ -1806,7 +1731,7 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 }
 
 
-</tw-passagedata><tw-passagedata pid="65" name="Omen Data" tags="startup" position="1544,95" size="100,100">{(set: $omenList1 to (array: 
+</tw-passagedata><tw-passagedata pid="64" name="Omen Data" tags="startup" position="1544,95" size="100,100">{(set: $omenList1 to (array: 
 &quot;stones plummeted from the sky like rain&quot;, 
 &quot;a number of Romans have been struck by lightning&quot;, 
 &quot;a babe, no more than six months of age, shouted &#39;Triumph&#39; at the market&quot;, 
