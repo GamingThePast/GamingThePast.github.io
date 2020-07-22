@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="A POH 0.0.13 HARLOWE" startnode="19" creator="Twine" creator-version="2.3.5" ifid="E8C1660F-107C-4C4F-916C-7D4932B7122F" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story{font-size:100%; 
+<tw-storydata name="A POH 0.0.13 HARLOWE" startnode="19" creator="Twine" creator-version="2.3.9" ifid="E8C1660F-107C-4C4F-916C-7D4932B7122F" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story{font-size:100%; 
   color:#000;
   background-color:
 font-family: "Times New Roman", Georgia, Serif;  
@@ -43,8 +43,14 @@ tw-passage{
 width: 80%;
 }
 
+tw-passage span.footnoteSymbol{
+	font-size:150%;
+  	font-weight: bold;
+}
+
 tw-passage span.important{
 	font-size:140%;
+  	color: #800000;
 	font-family: Castellar, "Times New Roman";
 }
 
@@ -78,10 +84,10 @@ tw-link{
 }
 
 tw-link.visited{
-	color: #65401a;
+	color: #CD853F;
 }
 tw-link:hover{
-	color: #8e5925;
+	color: #CD853F;
 }
 
 /* to disable undo button
@@ -621,7 +627,7 @@ div.stats{
 </script><tw-passagedata pid="1" name="Start" tags="author:JeremiahMcCall" position="1167,267" size="100,100">(set: $showFooter to true)It is the year of the consuls, (print: $consularYears&#39;s $yearIndex), $auc years since the the city of Rome was founded by your ancestors. You have just turned $age and entered the ranks of the &lt;i&gt;iuniores&lt;/i&gt;, as the Romans call men less than 46 years old. Filled with tales about the dignity of your family and hoping for a life of distinction for yourself and for the greater glory of the Aemilii Barbati, you set your sights on achieving political rank. But first you must consider the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;decem stipendia&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;ten military campaigns required to run for office &lt;/em&gt;&quot;) and [[serve with the army-&gt;First Army Service]] for a year.
 
 
-</tw-passagedata><tw-passagedata pid="2" name="OLD Player Stats" tags="" position="1898,82" size="100,100">(set: $showFooter to false)&lt;b&gt;$name, $age&lt;/b&gt;
+</tw-passagedata><tw-passagedata pid="2" name="OLD Player Stats" tags="" position="2143,115" size="100,100">(set: $showFooter to false)&lt;b&gt;$name, $age&lt;/b&gt;
 &lt;b&gt;estate income: &lt;/b&gt; $income &lt;i&gt;sesterces&lt;/i&gt;
 &lt;ul&gt;(link-reveal:&quot;&lt;strong&gt;virtus&lt;/strong&gt;&quot;)[ (your reputation for manliness, for military courage and behavior)]: $virtus
 (link-reveal:&quot;&lt;strong&gt;oratory&lt;/strong&gt;&quot;)[ (your ability to speak persuasively in public settings)] : $oratory
@@ -682,16 +688,18 @@ You have served the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;Res Publ
 
 CURRENT END OF GAME
 
-&lt;!--DATA--&gt;</tw-passagedata><tw-passagedata pid="17" name="End of Year" tags="" position="1186,1190" size="200,100">{(set: $age += 1)(set: $advocacy to false)(set: $service to false)
-&lt;span class=&quot;important&quot;&gt;A year has passed.&lt;/span&gt; Now $age years old,  (if: $stipendia is 1)[you have served for 1 year](else:)[you have served as a soldier $stipendia campaigns] and are a step closer to your goal of holding office and joining the senate.}
+&lt;!--DATA--&gt;</tw-passagedata><tw-passagedata pid="17" name="End of Year" tags="" position="1186,1190" size="200,100">{&lt;!--DEBUG--&gt;
+&lt;!--(set: $stipendia to 10)--&gt;
+(set: $age to 30)
+&lt;!--END DEBUG--&gt;
+(set: $age += 1)(set: $advocacy to false)(set: $service to false)
+&lt;span class=&quot;important&quot;&gt;A year has passed.&lt;/span&gt; Now $age years old,  (if: $stipendia is 1)[you have served for 1 year](else:)[you have served as a soldier $stipendia campaigns] and are a step closer to your goal of holding office and joining the senate.
 
-{(if: $stipendia &lt; 10)
-[You still must (link: &quot;serve as a soldier&quot;)[(set: $yearIndex+=1)(set: $auc+=1)(set: $service to true)(goto: &quot;New Year&quot;)
-for (set: $temp to 10 - $stipendia) $temp campaigns before you can run for high office]
-
-(if: $age &lt;= 20)[, and you are not quite old enough to practice law.]
-(else-if: $age &gt; 20)[ but you can also (link: &quot;work as an advocate&quot;)[((set: $auc+=1)(set: $yearIndex+=1)(set: $advocacy to true)(goto: &quot;New Year&quot;)]] this year. (if: $stipendia &gt;= 10)[ You are eligible to seek (link: &quot;a political office&quot;)[(goto: &quot;Run for Office&quot;)]for the coming year.]]}
-
+(if: $stipendia &lt; 10)
+[You still owe (link: &quot;military service&quot;)[(set: $yearIndex+=1)(set: $auc+=1)(set: $service to true)(goto: &quot;New Year&quot;)
+for (set: $temp to 10 - $stipendia) $temp campaigns before you can run for high office](if: $age &lt;= 20)[, and you are not quite old enough to practice law](else-if: $age &gt; 20)[, but you can also (link: &quot;work as an advocate&quot;)[((set: $auc+=1)(set: $yearIndex+=1)(set: $advocacy to true)(goto: &quot;New Year&quot;)]] this year.] 
+(else-if: $stipendia &gt;= 10)[ You are eligible to seek (link: &quot;a political office &quot;)[(goto: &quot;Run for Office&quot;)]for the coming year.]
+}
 &lt;!--note that election to office happened at the end of the year before service started--&gt;</tw-passagedata><tw-passagedata pid="18" name="My funeral" tags="" position="1701,798" size="100,100">(set: $showFooter to false)
 &lt;span class=&quot;important&quot;&gt;A funeral worthy of an aristocrat&lt;/span&gt;. You have that, at least. According to Roman custom, actors take on the parts of the most distinguished of your ancestors, retalling their exploits and listing their honors to the public. When it comes to you, the eulogy is distinguished but unembellished.
 
@@ -710,9 +718,8 @@ Spolia Opima: (print: $honors&#39;s &quot;Spolia Opima&quot;)
 Triumphs: (print: $honors&#39;s &quot;Triumph&quot;)
 Princeps Senatus: (print: $honors&#39;s &quot;Princeps Senatus&quot;)
 
-(link: &quot;Try Again&quot;)[(reload:)]
-
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Polybius 6.53-54 describes an aristocratic Roman funeral&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="19" name="Title Passage" tags="" position="1170.6666666666667,7" size="100,100">{(set: $showFooter to false)&lt;em&gt;&lt;h3&gt;Path of Honors: A Roman Adventure (Experimental)&lt;/h3&gt;&lt;/em&gt;
+[[Try Again-&gt;Create Aristocrat]]
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Polybius 6.53-54 describes an aristocratic Roman funeral&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="19" name="Title Passage" tags="" position="1170,7" size="100,100">{(set: $showFooter to false)&lt;em&gt;&lt;h3&gt;Path of Honors: A Roman Adventure (Experimental)&lt;/h3&gt;&lt;/em&gt;
 &lt;em&gt;by (link-reveal: &quot;Jeremiah McCall&quot;)[(open-url: &quot;https://gamingthepast.net/about/&quot;)]&lt;/em&gt;}
 Version 0.0.13  NOT Stable
 
@@ -731,34 +738,25 @@ For more background, please see my work on (link-reveal: &quot;Gamingthepast.net
 
 &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by/4.0/&quot;&gt;Creative Commons Attribution 4.0 International License&lt;/a&gt;.</tw-passagedata><tw-passagedata pid="20" name="OLD Footer" tags="" position="12,111" size="100,100">(if: $showFooter is true)[&lt;hr&gt;(link: &quot;&lt;i&gt;(Stats)&lt;/i&gt;&quot;)[(goto:  &quot;Player Stats&quot;)]]
 
-</tw-passagedata><tw-passagedata pid="21" name="Advocacy for Year" tags="" position="2292,708" size="200,100">(if: $seenOratoryIntro is false)[
-(set: $seenOratoryIntro to true)
-It is customary for a young Roman such as yourself to frequent the forum, delivering speeches in the law courts. Not only will this, so your father always said, teach you respect for the laws that undergird the Republic, it will grow your circle of friends. A senator, such as you hope to be, can never have too many friends. 
+</tw-passagedata><tw-passagedata pid="21" name="Advocacy for Year" tags="" position="2292,706" size="200,100">(if: $seenOratoryIntro is false)[(set: $seenOratoryIntro to true)
+It is customary for a young Roman, such as yourself, who wants to embark on a political career to frequent the forum, delivering speeches in the law courts. Not only will this, so your father always said, teach you respect for the laws that undergird the Republic, it will grow your circle of friends. A senator, such as you hope to be, can never have too many friends.
 
-Your uncle, Lucius Aemilius is a skilled orator. Though now retired from pleading cases, he took great pleasure droning on about the legal system and his great victories in the forum. In the process you learned both how Roman law works, and that Uncle Lucius could turn a simple anecdote into an epic.
+Your uncle, Lucius Aemilius is a skilled orator. Though now retired from pleading cases, he took great pleasure droning on about the legal system and his great victories in the forum. In the process you learned both how Roman law works, and that Uncle Lucius could turn a simple anecdote into an epic.]
 
-As an advocate you can assist clients by defending them in the law courts. (link: &quot;(Explain mechanics)&quot;)[(goto: &quot;Explain Advocacy Mechanics&quot;)]. Winning cases will increase your skill at oratory. Winning risky cases will raise your skill at oratory even more. Even losing cases may increase your skill, though your popularity may suffer.Excited by the opportunity, you [[look for clients-&gt;Advocacy - Choose a Case]]
-
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Plut. Cato Mai. 1 says that the famed Marcus Porcius Cato as a young man served as an advocate in courts of local towns. Polyb. 31.23.11 says that the young Publius Cornelius Scipio Aemilianus told Polybius that other Romans looked down on him because he did not speak in the law courts.&lt;/em&gt;]
-](else:)[(goto: &quot;Advocacy - Choose a Case&quot;)]</tw-passagedata><tw-passagedata pid="22" name="Risky Advocacy" tags="" position="4101,3096" size="100,100">You take the risky cases, hoping to make a bigger name for yourself in the law courts. The cases you handle range from (either: &quot;a charge of bribery in a local election&quot;,&quot;a murder charge&quot;,&quot;a man who has been wrongfully declared mad by his kin who hope to seize his property.&quot;) to (either: &quot;a client who claimed to have been harmed by his patron&quot;,&quot;a man accused of testifying falsely at a trial&quot;)
-\(set: $adversaryOratory to (Random:1,10))
-\(if: $oratory &gt; $adversaryOratory)[(set: $oratory +=3)(set: $popularity +=2) You win many of your cases and your oratory improves, as does your popularity (&lt;b&gt;&lt;em&gt;oratory: &lt;/em&gt;&lt;/b&gt;$oratory,&lt;b&gt;&lt;em&gt;Popularity: &lt;/em&gt;&lt;/b&gt;$popularity).]
-(else-if: $oratory &lt; $adversaryOratory- 3)[(set: $oratory +=1)(set: $popularity -=1) You are easily defeated by your more eloquent adversaries and your popularity suffers a little (&lt;b&gt;&lt;em&gt;oratory: &lt;/em&gt;&lt;/b&gt;$oratory &lt;b&gt;&lt;em&gt;, popularity: &lt;/em&gt;&lt;/b&gt;$popularity).]
-(else:)[(set: $oratory +=1)You lose more of your cases than you win this year. Your oratory improves a little, but you do not increase your popularity(&lt;b&gt;&lt;em&gt;oratory: &lt;/em&gt;&lt;/b&gt;$oratory).]
-
-
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;The Twelve Tables provide all manner of possibilities for legal cases and those mentioned in this passage are inspired by the tables.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="23" name="Easy Advocacy" tags="" position="2877,862" size="100,100">You take the easy cases and send the difficult clients on their way to seek help elsewhere. In your desire to spread your name you frequent the towns around the City, looking for promising cases. The cases you handle range from (either: &quot;a debtor who is improperly detained by his creditor&quot;,&quot;an adult son who wants to be emancipated from his rather tyrannical father&quot;,&quot;an adopted son who makes a dubious claim to all of his father&#39;s wealth&quot;) to (either: &quot;a simple assault case&quot;,&quot;a piece of livestock that destroyed a neighbor&#39;s fence&quot;,&quot;rents due to a landlord who allowed renters to pasture their sheep&quot;)(set: $adversaryOratory to (Random:1,5))
+As an advocate you can assist clients by defending them in the law courts. Winning cases will increase your skill at oratory. Winning risky cases will raise your skill at oratory even more. Even losing cases may increase your skill, though your popularity may suffer.Excited by the opportunity, you [[look for clients.-&gt;Advocacy - Choose a Case]]
+{(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Plut. Cato Mai. 1 says that the famed Marcus Porcius Cato as a young man served as an advocate in courts of local towns. Polyb. 31.23.11 says that the young Publius Cornelius Scipio Aemilianus told Polybius that other Romans looked down on him because he did not speak in the law courts.&lt;/em&gt;]
+(else:)[(goto: &quot;Advocacy - Choose a Case&quot;)]}
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;††&lt;/span&gt;&quot;)[&lt;strong&gt;††&lt;/strong&gt;&lt;em&gt;Gameplay note: Each plaintiff&#39;s cases has strength value randomly selected within a range determined by the case&#39;s difficulty:easy (2-6), moderate (4-10), or difficult (8-16). Your defense consists of a random number 1-6 + your current oratory skill. If the sum of these two numbers is greater than the number representing the plaintiff&#39;s case, you will win the lawsuit. Otherwise, you will lose.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="22" name="Easy Advocacy" tags="" position="2877,862" size="100,100">You take the easy cases and send the difficult clients on their way to seek help elsewhere. In your desire to spread your name you frequent the towns around the City, looking for promising cases. The cases you handle range from (either: &quot;a debtor who is improperly detained by his creditor&quot;,&quot;an adult son who wants to be emancipated from his rather tyrannical father&quot;,&quot;an adopted son who makes a dubious claim to all of his father&#39;s wealth&quot;) to (either: &quot;a simple assault case&quot;,&quot;a piece of livestock that destroyed a neighbor&#39;s fence&quot;,&quot;rents due to a landlord who allowed renters to pasture their sheep&quot;)(set: $adversaryOratory to (Random:1,5))
 (if: $oratory &gt; $adversaryOratory)[(set: $oratory +=2)(set: $popularity +=1) More often than not, you win the cases you try and your oratory improves, as does your popularity with citizens around the City (&lt;b&gt;&lt;em&gt;oratory: &lt;/em&gt;&lt;/b&gt;$oratory, &lt;b&gt;&lt;em&gt;popularity: &lt;/em&gt;&lt;/b&gt;$popularity).]
 (else:)[(set: $oratory +=1)(either: &quot;Whether it is some failure in your planning, or the oratorical skills of your adversaries, &quot;,&quot;Your skills, however, are insufficient to the task, and&quot;) you lose more of your cases than you win this year. Your oratory improves a little, but you do not increase your popularity (&lt;b&gt;&lt;em&gt;oratory: &lt;/em&gt;&lt;/b&gt;$oratory).]
 
 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;The Twelve Tables provide all manner of possibilities for legal cases and those mentioned in this passage are inspired by the tables.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="24" name="Military Tribune Choices" tags="" position="2213.3333333333335,1119.3333333333333" size="100,100">(set: $milTribune to true)
+(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;The Twelve Tables provide all manner of possibilities for legal cases and those mentioned in this passage are inspired by the tables.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="23" name="Military Tribune Choices" tags="" position="2213,1119" size="100,100">(set: $milTribune to true)
 This year you will serve as a military tribune, a critical link in the chain of command from the commander down to the centurions who command the maniples of heavy infantry, the backbone of the legion.
 
-Will you lead from the front, taking all the risks your men take and looking to distinguish yourself as a warrior-soldier? Or will you adopt a more conservative--and life preserving approach?
+Will you lead from the front, (link: &quot;taking all the risks your soldiers take&quot;)[(set: $riskyService to true)(set: $yourBattleOutcome to (random: 1,100))(goto: &quot;Battle&quot;)] and looking to distinguish yourself as a warrior-soldier? Or will you adopt a (link: &quot;more cautious--and life preserving&quot;)[(set: $riskyService to false)(set: $yourBattleOutcome to (random: 1,100))(goto: &quot;Battle&quot;)] approach?
 
-(link: &quot;Take risks to prove your virtus&quot;)[(set: $riskyService to true)(set: $yourBattleOutcome to (random: 1,100))(goto: &quot;Battle&quot;)]
-(link: &quot;Do your duty, but avoid unnecessary risks&quot;)[(set: $riskyService to false)(set: $yourBattleOutcome to (random: 1,100))(goto: &quot;Battle&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Aedile Campaign" tags="" position="578,557" size="200,100">{(set: $yourElectability to  $popularity + $virtus + $oratory + $dignitas)A time for taking stock of your achievements. After your years of campaigning (if: $oratory &gt; 0)[and service as an advocate] you have (if: $yourElectability &gt; 15)[a good chance](else-if: $yourElectability &lt; 15 and &gt; 10)[slight chance](else:)[little chance] of winning election.}
+</tw-passagedata><tw-passagedata pid="24" name="Aedile Campaign" tags="" position="578,557" size="200,100">{(set: $yourElectability to  $popularity + $virtus + $oratory + $dignitas)A time for taking stock of your achievements. After your years of campaigning (if: $oratory &gt; 0)[and service as an advocate] you have (if: $yourElectability &gt; 15)[a good chance](else-if: $yourElectability &lt; 15 and &gt; 10)[slight chance](else:)[little chance] of winning election.}
 &lt;!--DEBUG ELECTABILITY IS $yourElectability--&gt;
 It is time to try your hand in the political arena and run for the curule aedileship. The first step along the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;cursus honorum&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;path of offices that a Roman aristocrat might aspire to climb&lt;/em&gt;&quot;) 
 
@@ -798,34 +796,8 @@ In accordance with the law, you walk the city on three market days over the cour
 
 (set: $aedCompVotes to (array: (random: 10,20), (random: 10,20), (random: 10,20), (random: 10,20), (random: 10,20)))}
 
-</tw-passagedata><tw-passagedata pid="26" name="Development Log" tags="" position="418,180" size="100,100">Started 11/1 going back to put more flavor text in, more varied passages, and a footnote system to indicate the sources for the various passages.</tw-passagedata><tw-passagedata pid="27" name="Data" tags="startup" position="1404,98" size="100,100">{(set: $yearIndex to 1) &lt;!--Stores the year of the simulation starting with 1--&gt;
+</tw-passagedata><tw-passagedata pid="25" name="Development Log" tags="" position="418,180" size="100,100">Started 11/1 going back to put more flavor text in, more varied passages, and a footnote system to indicate the sources for the various passages.</tw-passagedata><tw-passagedata pid="26" name="Data" tags="startup" position="1404,98" size="100,100">{(set: $yearIndex to 1) &lt;!--Stores the year of the simulation starting with 1--&gt;
 (set: $auc to 453)
-(set: $initSkillPoints to 4)
-(set: $showFooter to true)
-(set: $showHeader to false)
-(set: $age to 17)
-&lt;!--Skills--&gt;
-(set: $statMax to 10)
-(set: $oratory to 0)
-(set: $religion to 0)
-(set: $martialSkill to 0)
-(set: $legalism to 0)
-(set: $strategy to 0)
-(set: $culture to 0)
-(set: $economy to 0)
-&lt;!--Rankings--&gt;
-(set: $virtus to 0) 
-(set: $dignitas to 0)
-(set: $popularity to 0)
-(set: $piety to 0) 
-&lt;!--Hidden Stats--&gt;
-(set: $invidia to 0) 
-(set: $corruption to 0)
-(set: $brutality to 0) 
-(set: $populism to 0)
-(set: $income to 100000)
-(set: $stipendia to 0) 
-(set: $numOffices to 0)
 (set: $honors to (datamap: &quot;Corona Civica&quot;,0,&quot;Corona Muralis&quot;,0,&quot;Corona Castrensis&quot;,0,&quot;Enemy Spoils&quot;,0,&quot;Spolia Opima&quot;, 0,&quot;Military Tribuneship&quot;,0,&quot;Triumph&quot;,0,&quot;Princeps Senatus&quot;,0))
 (set: $mascEnding to &quot;us&quot;)
 (set: $femEnding to &quot;a&quot;)
@@ -843,7 +815,7 @@ In accordance with the law, you walk the city on three market days over the cour
 (set: $mastPlebNomenList to (array: &quot;Fulvi&quot;, &quot;Calpurni&quot;, &quot;Semproni&quot;, &quot;Deci&quot;, &quot;Minuci&quot;,&quot;Flamini&quot;, &quot;Fabrici&quot;, &quot;Caecili&quot;, &quot;Juni&quot;, &quot;Terenti&quot;,&quot;Atili&quot;, &quot;Mamili&quot;, &quot;Genuci&quot;, &quot;Curi&quot;, &quot;Livi&quot;,&quot;Ogulni&quot;, &quot;Marci&quot;, &quot;Otacilia&quot;, &quot;Duili&quot;, &quot;Aeli&quot;,&quot;Aureli&quot;, &quot;Coruncania&quot;, &quot;Fundani&quot;, &quot;Lutati&quot;, &quot;Villi&quot;,&quot;Licini&quot;, &quot;Carvili&quot;, &quot;Pomponi&quot;, &quot;Apusti&quot;, &quot;Porci&quot;))
 (set: $consularYears to (array: &quot;M. Valerius Corvus and Q. Appuleius Pansa&quot;, &quot;M. Fulvius Paetinus and T. Manlius Torquatus&quot;, &quot;Cn. Fulvius Maximus and L. Cornelius Scipio&quot;, &quot;Q. Fabius Maximus and P. Decius Mus&quot;, &quot;Ap.Claudius Caecus and L. Volumnius Violens&quot;, &quot;Q. Fabius Maximus Rullianus and P.Decius Mus&quot;, &quot;L.Postumius Megellus and M. Atilius Regulus&quot;, &quot;L. Papirius Cursor and Sp. Carvilius Maximus&quot;, &quot;Q.Fabius Maximus Gurges and D. Junius Brutus&quot;, &quot;L. Postumius Megellus and  C. Junius Bubulcus Brutus&quot;, &quot;P. Cornelius Rufinus and M&#39;. Curius Dentatus&quot;, &quot;M. Valerius Maximus Corvus II	and Q. Caedicius Noctua&quot;, &quot;Q. Marcius Tremulus and P. Cornelius Arvina&quot;, &quot;M. Claudius Marcellus and	C. Nautius Rutilus&quot;, &quot;M. Valerius Maximus Potitus and C. Aelius Paetus&quot;, &quot;C. Claudius Canina and M. Aemilius Lepidus&quot;, &quot;C. Servilius Tucca and L. Caecilius Metellus Denter&quot;, &quot;P. Cornelius Dolabella and Cn. Domitius Calvinus Maximus&quot;, &quot;C. Fabricius Luscinus and Q. Aemilius Papus&quot;, &quot;L. Aemilius Barbula and Q. Marcius Philippus&quot;, &quot;P. Valerius Laevinus and Ti. Coruncanius&quot;, &quot;P. Sulpicius Saverrio and P. Decius Mus&quot;, &quot;C. Fabricius Luscinus and Q. Aemilius Papus&quot;, &quot;P. Cornelius Rufinus and	C. Junius Bubulcus Brutus&quot;, &quot;Q. Fabius Maximus Gurges and C. Genucius Clepsina&quot;, &quot;M&#39;. Curius Dentatus II and L. Cornelius Lentulus Caudinus&quot;, &quot;M&#39;. Curius Dentatus and Ser. Cornelius Merenda&quot;, &quot;C. Fabius Licinus	C. Claudius Canina and L. Papirius Cursor II	Sp. Carvilius Maximus&quot;, &quot;K. Quinctius Claudus and L. Genucius Clepsina&quot;, &quot;C. Genucius Clepsina and Cn. Cornelius Blasio&quot;, &quot;Q. Ogulnius Gallus and C. Fabius Pictor&quot;, &quot;P. Sempronius Sophus and Ap. Claudius Russus&quot;, &quot;M. Atilius Regulus and L. Julius Libo&quot;, &quot;D. Junius Pera and N. Fabius Pictor&quot;, &quot;Q. Fabius Maximus Gurges and	L. Mamilius Vitulus&quot;, &quot;Ap. Claudius Caudex and M. Fulvius Flaccus&quot;, &quot;M&#39;. Valerius Maximus Mesalla and M&#39;. Otacilius Crassus&quot;, &quot;L. Postumius Megellus and Q. Mamilius Vitulus&quot;, &quot;L. Valerius Flaccus	and T. Otacilius Crassus&quot;, &quot;Cn. Cornelius Scipio Asina and C. Duilius&quot;, &quot;L. Cornelius Scipio and C. Aquillius Florus&quot;, &quot;A. Atilius Calatinus and C. Sulpicius Paterculus&quot;, &quot;C. Atilius Regulus and Cn. Cornelius Blasio&quot;, &quot;L. Manlius Vulso Longus and Q. Caedicius&quot;, &quot;Ser. Fulvius Paetinus Nobilior and M. Aemilius Paullus&quot;, &quot;Cn. Cornelius Scipio Asina and A. Atilius Calatinus&quot;, &quot;Cn. Servilius Caepio	and C. Sempronius Blaesus&quot;, &quot;C. Aurelius Cotta and P. Servilius Geminus&quot;, &quot;L. Caecilius Metellus and C. Furius Pacilus&quot;, &quot;C. Atilius Regulus and L. Manlius Vulso Longus&quot;, &quot;P. Claudius Pulcher and L. Junius Pullus&quot;, &quot;C. Aurelius Cotta and P. Servilius Geminus&quot;, &quot;L. Caecilius Metellus and N. Fabius Buteo&quot;, &quot;M&#39;. Otacilius Crassus and M. Fabius Licinus&quot;, &quot;M. Fabius Buteo and C. Atilius Bulbus&quot;, &quot;A. Manlius Torquatus Atticus	and C. Sempronius Blaesus&quot;, &quot;C. Fundanius Fundulus and C. Sulpicius Galus&quot;, &quot;C. Lutatius Catulus and A. Postumius Albinus&quot;,&quot;A. Manlius Torquatus Atticus and Q. Lutatius Cerco&quot;))
 (set: $seenOratoryIntro to false)}
-</tw-passagedata><tw-passagedata pid="28" name="Aedile Competitors" tags="" position="478,1403" size="100,100">&lt;!-- what&#39;s the trade-off for elections?--&gt;
+</tw-passagedata><tw-passagedata pid="27" name="Aedile Competitors" tags="" position="478,1403" size="100,100">&lt;!-- what&#39;s the trade-off for elections?--&gt;
 You are not alone in your candidacy; other sons of aristocratic households also hope to hold the aedileship this year. (set: $aedileNumCompetitors to 6) This year there are $aedileNumCompetitors candidates for the curule aedileship:
 
 
@@ -868,7 +840,7 @@ You consider your options as you campaign. You can (link: &quot;attempt to curry
 (print: $aedCompetitor2&#39;s name) has an electibility of (print: $aedCompetitor2&#39;s electibility)
 
 
-</tw-passagedata><tw-passagedata pid="29" name="Aedile Elections" tags="" position="707,1098" size="100,100">{&lt;!-- Put the arrays into a Datamap of competitors--&gt;
+</tw-passagedata><tw-passagedata pid="28" name="Aedile Elections" tags="" position="707,1098" size="100,100">{&lt;!-- Put the arrays into a Datamap of competitors--&gt;
 (set: $aedileCompetitors to (datamap: $aedCompNames&#39;s 1, $aedCompVotes&#39;s 1, $aedCompNames&#39;s 2, $aedCompVotes&#39;s 2, $aedCompNames&#39;s 3, $aedCompVotes&#39;s 3, $aedCompNames&#39;s 4, $aedCompVotes&#39;s 4, $aedCompNames&#39;s 5, $aedCompVotes&#39;s 5, &quot;You&quot;, $yourElectability))
 
 The day comes for the elections. The praetor in charge of the process discusses various matters with assistants while Roman citizens gather in the  tribal assembly. When the assembly grounds are full, a pontifex leads the assembly in a prayer to the gods and a sacrifice. 
@@ -919,10 +891,10 @@ Then it is time for you and the other candidates for curule aedile to announce t
 }
 
 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;An outstanding overview of aediles and the procedures in aedile elections in the Tribal assembly comes from Lintott p. 41-48. Note that it is not clear how votes were recorded in the tribal assembly. I have provided one of the options Lintott suggests. In general we know exceedingly little about aedile elections in the middle Republic since most references to aediles in Livy and elsewhere simply talk about their acts in office and these rather briefly.&lt;/em&gt;]
-(link: &quot;&lt;strong&gt;††&lt;/strong&gt;&quot;)[&lt;strong&gt;††&lt;/strong&gt;&lt;em&gt;Your dignitas is important in the calculation of your electability, but a bit less so since the tribal assembly votes for curule aediles and the regular assidui (common citizens with voting rights) outnumber the equites and senators in the tribes. Your reputation for virtus is also important, but a little less in that aediles essentially have no military functions&lt;/em&gt;]
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;An outstanding overview of aediles and the procedures in aedile elections in the Tribal assembly comes from Lintott p. 41-48. Note that it is not clear how votes were recorded in the tribal assembly. I have provided one of the options Lintott suggests. In general we know exceedingly little about aedile elections in the middle Republic since most references to aediles in Livy and elsewhere simply talk about their acts in office and these rather briefly.&lt;/em&gt;]
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;††&lt;/span&gt;&quot;)[&lt;strong&gt;††&lt;/strong&gt;&lt;em&gt;Your dignitas is important in the calculation of your electability, but a bit less so since the tribal assembly votes for curule aediles and the regular assidui (common citizens with voting rights) outnumber the equites and senators in the tribes. Your reputation for virtus is also important, but a little less in that aediles essentially have no military functions&lt;/em&gt;]
 
-</tw-passagedata><tw-passagedata pid="30" name="Aedile First Campaign Choice" tags="" position="716,685" size="100,100">While you wander the city, promoting your candidacy ....
+</tw-passagedata><tw-passagedata pid="29" name="Aedile First Campaign Choice" tags="" position="716,685" size="100,100">While you wander the city, promoting your candidacy ....
 
 {|aedFirstScen1)[
 You hear word that (print: $aedCompNames&#39;s 1), a candidate for curule aedile is the son of  (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;libertus&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;freed slave&lt;/em&gt;&quot;) (a sordid origin to be sure). A clever speaker, one able to draw crowds, this lout seems to have a bit of a following. You hear him pledge to those around him that, as aedile, he will make more records available to citizens in the City such as the official calendar with its dates for when official business can and cannot be conducted. A move like this would diminish some of the power of the (link-replace: &quot;&lt;em class=&#39;term&#39;&gt;pontifices&lt;/em&gt;&quot;)[priests responsible for maintaining the calendars.] You consider how this might affect your campaign strategy.&lt;br&gt;&lt;br&gt;
@@ -954,7 +926,7 @@ You have watched a rival candidate, (print: $aedCompNames&#39;s 3), work the cro
 
 
 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;We know very little about aedile campaigns. The aedile making the Roman calendar public is a reference to Gnaeus Flavius, whose promises Livy details in 9.46; The second scenario with the Megalesia refers to Aulus Atilius Serranus and Lucius Scribonius Libo, the aediles who first staged dramas at the Megalesia: Livy 34.54&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="31" name="Aedile Second Campaign Choice" tags="" position="707,973" size="100,100">A week passes and you visit the City on another market day, when all the rural folk being their produce and the city folk purchase their supplies for the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;nundinae&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;eight day week&lt;/em&gt;&quot;)
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;We know very little about aedile campaigns. The aedile making the Roman calendar public is a reference to Gnaeus Flavius, whose promises Livy details in 9.46; The second scenario with the Megalesia refers to Aulus Atilius Serranus and Lucius Scribonius Libo, the aediles who first staged dramas at the Megalesia: Livy 34.54&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="30" name="Aedile Second Campaign Choice" tags="" position="707,973" size="100,100">A week passes and you visit the City on another market day, when all the rural folk being their produce and the city folk purchase their supplies for the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;nundinae&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;eight day week&lt;/em&gt;&quot;)
 
 {|aedSecondScen1)[
 You might spend your time with the yeoman farmers, come to market, perhaps engage in some banter and show yourself to be a man of the people. On the other hand, you might spend your time talking to the men of substance, the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;equites&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;class of Romans whose wealth allows them to serve as cavalry&lt;/em&gt;&quot;), and perhaps even a senator or two if they happen to be present
@@ -983,7 +955,7 @@ You might spend your time with the yeoman farmers, come to market, perhaps engag
 
 
 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;We know very little about aedile campaigns. &lt;/em&gt;]</tw-passagedata><tw-passagedata pid="32" name="TEMPLATE - THREE CHOICE" tags="" position="136,76" size="100,100">&lt;!-- Introduction
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;We know very little about aedile campaigns. &lt;/em&gt;]</tw-passagedata><tw-passagedata pid="31" name="TEMPLATE - THREE CHOICE" tags="" position="136,76" size="100,100">&lt;!-- Introduction
 
 {|Scene1)[
 
@@ -1002,7 +974,7 @@ You might spend your time with the yeoman farmers, come to market, perhaps engag
 (set: $incidentIndex to (random: 1,3))
 (if: $incidentIndex is 1)[(show: ?Scene1)]
 (else-if: $incidentIndex is 2)[(show: ?Scene2)]
-(else-if: $incidentIndex is 3)[(show: ?Scene3)]}--&gt;</tw-passagedata><tw-passagedata pid="33" name="End of Year - Lost Aedile Election" tags="" position="1040,1078" size="100,100">{(set: $age += 1)
+(else-if: $incidentIndex is 3)[(show: ?Scene3)]}--&gt;</tw-passagedata><tw-passagedata pid="32" name="End of Year - Lost Aedile Election" tags="" position="1040,1078" size="100,100">{(set: $age += 1)
 Another year has passed. Now $age years old,  (if: $stipendia is 1)[you have served for 1 year](else:)[you have served $stipendia campaigns]. But you have lost at your first electoral contest. 
 }
 What will you do next year?
@@ -1011,14 +983,14 @@ What will you do next year?
 (set: $service to false)
 
 (if: $age &gt; 20)[(link: &quot;Serve as an advocate&quot;)[((set: $auc+=1)(set: $yearIndex+=1)(set: $advocacy to true)(goto: &quot;New Year&quot;)]]
-(link: &quot;Serve in another campaign&quot;)[(set: $yearIndex+=1)(set: $auc+=1)(set: $service to true)(goto: &quot;New Year&quot;)]</tw-passagedata><tw-passagedata pid="34" name="Banter with Peasants" tags="" position="578,971" size="100,100">(either: &quot;You walk among the people trading friendly greetings and banter to gain their support in the elections. Unfortunately after shaking hands with one farmer whose hands are particularly rough and calloused from working the fields, you blurt out, &#39;Do you walk on your hands all day instead of your feet?&#39; Neither the farmer nor the crowd are amused at your elitist stance (set: $dignitas+=1)(set: $popularity-=1)(set: $populism-=1)&quot;, &quot;You walk among the people trading friendly greetings and banter to gain their support in the elections. They are pleased that you are spending your time among them and you feel confident this day&#39;s work will increase your chances of winning the election. (set: $popularity+=1).&quot;)
+(link: &quot;Serve in another campaign&quot;)[(set: $yearIndex+=1)(set: $auc+=1)(set: $service to true)(goto: &quot;New Year&quot;)]</tw-passagedata><tw-passagedata pid="33" name="Banter with Peasants" tags="" position="578,971" size="100,100">(either: &quot;You walk among the people trading friendly greetings and banter to gain their support in the elections. Unfortunately after shaking hands with one farmer whose hands are particularly rough and calloused from working the fields, you blurt out, &#39;Do you walk on your hands all day instead of your feet?&#39; Neither the farmer nor the crowd are amused at your elitist stance (set: $dignitas+=1)(set: $popularity-=1)(set: $populism-=1)&quot;, &quot;You walk among the people trading friendly greetings and banter to gain their support in the elections. They are pleased that you are spending your time among them and you feel confident this day&#39;s work will increase your chances of winning the election. (set: $popularity+=1).&quot;)
 
 [[Continue-&gt;Aedile Elections]] 
 
 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;P.Cornelius Scipio Nasica is the aristocrat who reportedly made this joke while campaigning to be aedile. It alienated the rural tribes and cost him the election Valerius Maximus 7.5.2&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="35" name="Brush Shoulders with Equites" tags="" position="581,1098" size="100,100">(either: &quot;You spy a gathering of men from the cavalry class engaged in discussion and insinuate yourself into the conversation. You drop a remark, however, that causes on of the circle to ask you to clarify your opinion on grain prices. He suggests with some derision that you support fixed maximums on grain prices &#39;for the masses&#39;. You may have harmed your standing if this gets out.(set: $dignitas-=1)(set: $popularity+=1)(set: $populism+=1)&quot;, &quot;You walk among the men of the cavalry class, exchanging views on the importance of good agricultural stock, the difficulties of managing slaves, and the importance of setting good prices for grain. You seem to have impressed the lot and established yourself as a friend of the elite. (set: $dignitas+=1).&quot;)
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;P.Cornelius Scipio Nasica is the aristocrat who reportedly made this joke while campaigning to be aedile. It alienated the rural tribes and cost him the election Valerius Maximus 7.5.2&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="34" name="Brush Shoulders with Equites" tags="" position="581,1098" size="100,100">(either: &quot;You spy a gathering of men from the cavalry class engaged in discussion and insinuate yourself into the conversation. You drop a remark, however, that causes on of the circle to ask you to clarify your opinion on grain prices. He suggests with some derision that you support fixed maximums on grain prices &#39;for the masses&#39;. You may have harmed your standing if this gets out.(set: $dignitas-=1)(set: $popularity+=1)(set: $populism+=1)&quot;, &quot;You walk among the men of the cavalry class, exchanging views on the importance of good agricultural stock, the difficulties of managing slaves, and the importance of setting good prices for grain. You seem to have impressed the lot and established yourself as a friend of the elite. (set: $dignitas+=1).&quot;)
 
-[[Continue-&gt;Aedile Elections]] </tw-passagedata><tw-passagedata pid="36" name="MOUSE EFFECTS" tags="" position="271,22" size="100,100">You must complete the decem stipendia, the ten years of military service a Roman must complete before holding public office.
+[[Continue-&gt;Aedile Elections]] </tw-passagedata><tw-passagedata pid="35" name="MOUSE EFFECTS" tags="" position="1639,1362" size="100,100">You must complete the decem stipendia, the ten years of military service a Roman must complete before holding public office.
 
 LINK You must complete (link: &quot;the decem stipendia&quot;)[ the ten years of military service a Roman must complete] before holding public office.
 
@@ -1047,7 +1019,7 @@ You must complete the decem stipendia, the ten years of military service a Roman
 
 You must complete the decem stipendia, the ten years of military service a Roman must complete before holding public office.
 
-You must complete the decem stipendia, the ten years of military service a Roman must complete before holding public office.</tw-passagedata><tw-passagedata pid="37" name="Main Footer" tags="" position="15,244" size="100,100">{(if: $showFooter)[&lt;hr&gt;(link: &quot;&lt;span class=&#39;stat&#39;&gt;stats&lt;/span&gt;&quot;)[&lt;div class=&quot;stats&quot;&gt;&lt;strong&gt;age&lt;/strong&gt;: $age
+You must complete the decem stipendia, the ten years of military service a Roman must complete before holding public office.</tw-passagedata><tw-passagedata pid="36" name="Main Footer" tags="" position="15,244" size="100,100">{(if: $showFooter)[&lt;hr&gt;(link: &quot;&lt;span class=&#39;stat&#39;&gt;stats&lt;/span&gt;&quot;)[&lt;div class=&quot;stats&quot;&gt;&lt;strong&gt;age&lt;/strong&gt;: $age
 &lt;strong&gt;campaigns&lt;/strong&gt;: $stipendia
 &lt;strong&gt;virtus&lt;/strong&gt;: $virtus
 &lt;strong&gt;piety&lt;/strong&gt;: $piety
@@ -1079,7 +1051,7 @@ Help
 ]]
 [/code]
 
-Anyway, my question. Is there a way--&gt;</tw-passagedata><tw-passagedata pid="38" name="Battle Data" tags="startup" position="1725,100" size="100,100">{
+Anyway, my question. Is there a way--&gt;</tw-passagedata><tw-passagedata pid="37" name="Battle Data" tags="startup" position="1725,100" size="100,100">{
 (set: $gallicBattleIntro to (array: &quot;The army marches northward to subdue once again Rome&#39;s ancient enemy. In the midst of the stands of trees and small hills, your commander draws up the forces for battle. In the distance, the Gallic warband forms.&quot;, &quot;Their ancestors once sacked Rome, and you will always count them as enemies. On the plains of the Po River your forces deploy&quot;))
 
 (set: $gallicBattleStart to (array: &quot;The Gauls do not hesitate; with a fearsome war cry the warband surges forward. The armies clash and the noise of battle is almost overwhelming&quot;, &quot;The Gallic warriors are just as eager for the fight. Their leading warriors smash into your infantry&#39;s ranks&quot;))
@@ -1098,10 +1070,10 @@ Anyway, my question. Is there a way--&gt;</tw-passagedata><tw-passagedata pid="3
 }
 
 
-</tw-passagedata><tw-passagedata pid="39" name="Stay the Course Aedile" tags="" position="563,686" size="100,100">You are your own man and will rely on the qualities that have gotten you so far in life. No special pleading.
-[[Continue campaigning-&gt;Aedile Second Campaign Choice]] </tw-passagedata><tw-passagedata pid="40" name="Go Games Aedile" tags="" position="563,813" size="100,100">Spectacular games, spectacular dramas! Though it may cost your coffers at the very least, you decide to promise extraordinary games for the voters.
-[[Continue campaigning-&gt;Aedile Second Campaign Choice]] </tw-passagedata><tw-passagedata pid="41" name="Go Populist Aedile" tags="" position="710,814" size="100,100">Though it will no doubt cause some discomfort among the upper echelons of Roman society, you decide to take a populist approach and make your own promises to publicize useful official records such as the calendar.
-[[Continue campaigning-&gt;Aedile Second Campaign Choice]] </tw-passagedata><tw-passagedata pid="42" name="Aedile Results - OLD" tags="" position="480,1290" size="100,100">(set: $yourElectability to 18)
+</tw-passagedata><tw-passagedata pid="38" name="Stay the Course Aedile" tags="" position="563,686" size="100,100">You are your own man and will rely on the qualities that have gotten you so far in life. No special pleading.
+[[Continue campaigning-&gt;Aedile Second Campaign Choice]] </tw-passagedata><tw-passagedata pid="39" name="Go Games Aedile" tags="" position="563,813" size="100,100">Spectacular games, spectacular dramas! Though it may cost your coffers at the very least, you decide to promise extraordinary games for the voters.
+[[Continue campaigning-&gt;Aedile Second Campaign Choice]] </tw-passagedata><tw-passagedata pid="40" name="Go Populist Aedile" tags="" position="710,814" size="100,100">Though it will no doubt cause some discomfort among the upper echelons of Roman society, you decide to take a populist approach and make your own promises to publicize useful official records such as the calendar.
+[[Continue campaigning-&gt;Aedile Second Campaign Choice]] </tw-passagedata><tw-passagedata pid="41" name="Aedile Results - OLD" tags="" position="480,1290" size="100,100">(set: $yourElectability to 18)
 
 {&lt;!-- Create the Aedile competitors in two parallel arrays called $aedCompNames  and $aedCompVotes--&gt;
 (set: $index to (random: 1,10))
@@ -1185,7 +1157,7 @@ Datamap of Competitors: (print: $aedileCompetitors)
 	]
 ]}
 
-</tw-passagedata><tw-passagedata pid="43" name="Aedile Results" tags="" position="706,1225" size="100,100">&lt;!-- This passage comes automatically from Aedile Elections, which has put the winning aedile&#39;s names in $first and $second--&gt;
+</tw-passagedata><tw-passagedata pid="42" name="Aedile Results" tags="" position="706,1225" size="100,100">&lt;!-- This passage comes automatically from Aedile Elections, which has put the winning aedile&#39;s names in $first and $second--&gt;
 
 The winners are 
 $first and $second
@@ -1196,8 +1168,8 @@ The remainder of the year passes and you enter office at the start of the new ye
 [[Continue-&gt;NEW Aedile Set Goals]]
 ](else:)[The voters passed you over and you will have to occupy yourself as a private citizen in the new year
 [[Continue-&gt;End of Year - Lost Aedile Election]]
-]</tw-passagedata><tw-passagedata pid="44" name="Header" tags="header" position="614.6666666666666,20" size="100,100">{(if: $showHeader)[&lt;span class=&quot;year&quot;&gt;(print: $consularYears&#39;s $yearIndex), Consuls &lt;/span&gt;&lt;br&gt;](else:)[(set: $showHeader to true)]}
-</tw-passagedata><tw-passagedata pid="45" name="New Year" tags="" position="1236,939" size="200,100">At the year&#39;s start the new consuls, (print: $consularYears&#39;s $yearIndex), take office. Among other omens the augures and pontifices publicly report this year: 
+]</tw-passagedata><tw-passagedata pid="43" name="Header" tags="header" position="614,20" size="100,100">{(if: $showHeader)[&lt;span class=&quot;year&quot;&gt;(print: $consularYears&#39;s $yearIndex), Consuls &lt;/span&gt;&lt;br&gt;](else:)[(set: $showHeader to true)]}
+</tw-passagedata><tw-passagedata pid="44" name="New Year" tags="" position="1236,939" size="200,100">At the year&#39;s start the new consuls, (print: $consularYears&#39;s $yearIndex), take office. Among other omens the augures and pontifices publicly report this year: 
 * (print: $omenList1&#39;s (random: 1,11)).
 * (print: $omenList2&#39;s (random: 1,11)).
 * (print: $omenList3&#39;s (random: 1,11)).
@@ -1205,7 +1177,7 @@ Under the senate&#39;s (either: &quot;careful direction&quot;, &quot;watchful ey
 
 (linK: &quot;Continue&quot;)[(if: $advocacy is true)[(goto: &quot;Advocacy for Year&quot;)](else-if: $service is true)[(goto: &quot;New Military Service&quot;)]]
 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Livy lists all manner of yearly omens and prodigies. Presumably these were originally recorded in the annales maximi. The examples listed come from various places: Liv. 21.62, 22.1, 22.57, 23.32, 24.10 &lt;/em&gt;]</tw-passagedata><tw-passagedata pid="46" name="TO DO LIST" tags="" position="282,131" size="100,100">11/30 
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Livy lists all manner of yearly omens and prodigies. Presumably these were originally recorded in the annales maximi. The examples listed come from various places: Liv. 21.62, 22.1, 22.57, 23.32, 24.10 &lt;/em&gt;]</tw-passagedata><tw-passagedata pid="45" name="TO DO LIST" tags="" position="282,131" size="100,100">11/30 
 
 Smaller
 - Come up with a starting max value for qualities like virtus. 20? Hard to know without full life
@@ -1219,7 +1191,7 @@ Larger
 
 - Aediles Second Campaign choice needs to be finished
 
-3/26 Write some more cases</tw-passagedata><tw-passagedata pid="47" name="Advocacy - Choose a Case" tags="" position="2380,852" size="100,100">{&lt;-- pull a praenomen and plebeian nomen from the master list of plebeian nomina, $mastPlebNomenList--&gt;
+3/26 Write some more cases</tw-passagedata><tw-passagedata pid="46" name="Advocacy - Choose a Case" tags="" position="2380,852" size="100,100">{&lt;!-- pull a praenomen and plebeian nomen from the master list of plebeian nomina, $mastPlebNomenList--&gt;
 (set: $index to (random: 1,10))
 (set: $clientPraenomen to ($praenomenList&#39;s $index))
 (set: $index to (random: 1,30))
@@ -1273,10 +1245,7 @@ You ponder the case for a moment, then respond:&lt;br&gt;
 [[&quot;I will defend you in court&quot;-&gt;Try Case]]
 
 [[&quot;I cannot defend you in court&quot;-&gt;Decline Case]]
-
-
-
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Justinian&#39;s Digest,the 6th century CE collated collections of legal opinions on Roman law and its application is the source for the cases involving the killing of a slave, in particular  Justinian&#39;s Digest 9 Tit. 2 on the Lex Aquilia, a law protecting one from other&#39;s damage to one&#39;s property--&gt;&lt;/em&gt;]
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Justinian&#39;s Digest,the 6th century CE collated collections of legal opinions on Roman law and its application is the source for the cases involving the killing of a slave, in particular  Justinian&#39;s Digest 9 Tit. 2 on the Lex Aquilia, a law protecting one from other&#39;s damage to one&#39;s property--&gt;&lt;/em&gt;]
 
 
 
@@ -1288,7 +1257,7 @@ You ponder the case for a moment, then respond:&lt;br&gt;
 
 
 
-</tw-passagedata><tw-passagedata pid="48" name="RANDOM ROMAN NAME" tags="" position="136,188" size="100,100">(set: $index to (random: 1,10))
+</tw-passagedata><tw-passagedata pid="47" name="RANDOM ROMAN NAME" tags="" position="136,188" size="100,100">(set: $index to (random: 1,10))
 (set: $romanName to ($praenomenList&#39;s $index))
 (set: $index to (random: 1,30))
 (set: $romanName to (text: $romanName + &quot; &quot; + ($mastPlebNomenList&#39;s $index + $mascEnding)))
@@ -1297,7 +1266,7 @@ The name of the Character is $romanName
 
 
 
-</tw-passagedata><tw-passagedata pid="49" name="Legal Stuff" tags="" position="2886,744" size="100,100">
+</tw-passagedata><tw-passagedata pid="48" name="Legal Stuff" tags="" position="2886,744" size="100,100">
 
 
 
@@ -1318,7 +1287,7 @@ Defense Advocate
 Witnesses
 Point of Law
 Excellence of Defence
-</tw-passagedata><tw-passagedata pid="50" name="Try Case" tags="" position="2234,980" size="100,100">{&lt;!--set the ceiling for the random number that will represent the difficulty of the trial--&gt;
+</tw-passagedata><tw-passagedata pid="49" name="Try Case" tags="" position="2234,980" size="100,100">{&lt;!--set the ceiling for the random number that will represent the difficulty of the trial--&gt;
 (if: $caseDifficulty&#39;s $caseIndex is &quot;easy&quot;)[
 	(set: $trialMin to 2)
 	(set: $trialMax to 6)
@@ -1348,9 +1317,9 @@ And so the [[year passes.-&gt;End of Year]]]
 }
 
 
-</tw-passagedata><tw-passagedata pid="51" name="Decline Case" tags="" position="2544,1087" size="100,100">Do you want to look for [[another client-&gt;Advocacy - Choose a Case]] to defend, or [[give up-&gt;End of Year]] pleading cases this year?</tw-passagedata><tw-passagedata pid="52" name="Explain Advocacy Mechanics" tags="" position="2598,374" size="100,100">Cases can be easy, moderate, or difficult to defend and this stat determines the range for the point value representing the strength of the plaintiff&#39;s case. Your defense consists of a random number 1-6 + your current oratory skill. If the sum of the two numbers is greater than the number representing the plaintiff&#39;s case, you will win the lawsuit. Otherwise, you will lose.
+</tw-passagedata><tw-passagedata pid="50" name="Decline Case" tags="" position="2507,995" size="100,100">Do you want to look for [[another client-&gt;Advocacy - Choose a Case]] to defend, or [[give up-&gt;End of Year]] pleading cases this year?</tw-passagedata><tw-passagedata pid="51" name="Explain Advocacy Mechanics" tags="" position="2598,374" size="100,100">Cases can be easy, moderate, or difficult to defend and this stat determines the range for the point value representing the strength of the plaintiff&#39;s case. Your defense consists of a random number 1-6 + your current oratory skill. If the sum of the two numbers is greater than the number representing the plaintiff&#39;s case, you will win the lawsuit. Otherwise, you will lose.
 
-(link:&quot;Return to your story&quot;)[(goto: (history: )&#39;s last)]</tw-passagedata><tw-passagedata pid="53" name="Sidebar Footer" tags="footer" position="660,177" size="100,100">(prepend: ?sidebar)[&lt;div&gt;(if: $showFooter)[&lt;span class=&#39;stat&#39;&gt;stats&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;age&lt;/strong&gt;: $age
+(link:&quot;Return to your story&quot;)[(goto: (history: )&#39;s last)]</tw-passagedata><tw-passagedata pid="52" name="Sidebar Footer" tags="footer" position="660,177" size="100,100">(prepend: ?sidebar)[&lt;div&gt;(if: $showFooter)[&lt;span class=&#39;stat&#39;&gt;stats&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;age&lt;/strong&gt;: $age
 &lt;strong&gt;campaigns&lt;/strong&gt;: $stipendia
 &lt;strong&gt;oratory&lt;/strong&gt;: $oratory
 &lt;i&gt;religion&lt;/i&gt;: $religion
@@ -1366,19 +1335,19 @@ And so the [[year passes.-&gt;End of Year]]]
 &lt;br&gt;(link: &quot;&lt;span class=&#39;stat&#39;&gt;rewind&lt;/span&gt;&quot;)[(undo:)]
 &lt;br&gt;(link: &quot;&lt;span class=&#39;stat&#39;&gt;help&lt;/span&gt;&quot;)[(set: $showHeader to false)(set: $showFooter to true)(goto: &quot;Help&quot;)]&lt;/div&gt;
 ](else:)[&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;]]
-</tw-passagedata><tw-passagedata pid="54" name="WORK OUT TRANS" tags="" position="472,67" size="100,100">(mouseover-replace: &quot;Latin&quot;)[English]
+</tw-passagedata><tw-passagedata pid="53" name="WORK OUT TRANS" tags="" position="472,67" size="100,100">(mouseover-replace: &quot;Latin&quot;)[English]
 
 aristocratic Roman family, you are $name. That last part, Barbatus, refers to the exceptionally thick and full beard one of your ancestors had, and now the (link-replace: &quot;&lt;em class=&#39;term&#39;&gt;cognomen&lt;/em&gt;&quot;)[nickname] is used to distinguish your branch of the Aemilius family. The  (link-replace: &quot;&lt;em class=&#39;term&#39;&gt;res publica&lt;/em&gt;&quot;)[republic], set on course by the good men who ousted that most despicable of kings, Tarquinius Superbus, has thrived for several centuries and your family has played an important role in leading the republic.
 
 It is the year of the consuls,  you set your sights on achieving political rank. But first you must consider the (link-replace: &quot;&lt;em class=&#39;term&#39;&gt;decem stipendia&lt;/em&gt;.&quot;)[(show: ?decStipendiaDef)]
 
 |decStipendiaDef)[ten military campaigns required before you are eligible to run for offices.]
-</tw-passagedata><tw-passagedata pid="55" name="Code Test - Start with Aedile Election" tags="" position="1029,528" size="100,100">(set: $stipendia+= 10)
+</tw-passagedata><tw-passagedata pid="54" name="Code Test - Start with Aedile Election" tags="" position="1029,528" size="100,100">(set: $stipendia+= 10)
 (set:$virtus+=5)
 (set: $oratory+= 5)
 (set: $popularity+= 8)
 (set: $age to 30)
-[[Start from Here-&gt;First Election]]</tw-passagedata><tw-passagedata pid="56" name="Help" tags="" position="877,190" size="100,100">
+[[Start from Here-&gt;First Election]]</tw-passagedata><tw-passagedata pid="55" name="Help" tags="" position="877,190" size="100,100">
 Help Topics:
 (link-reveal: &quot;Player Stats&quot;)[
 &lt;strong&gt;SKILLS&lt;/strong&gt;&lt;br&gt;The player has seven skills stats, representing their skills and knowledge. The maximuk for each skill stat is 10. 
@@ -1403,7 +1372,7 @@ DEV NOTE: THE STATS THAT HAVE SOME CURRENT IMPLEMENTATION IN THE GAME ARE BOLDED
 &lt;strong&gt;populism&lt;/strong&gt;, the appearance of demagoguery, of appealing to the masses just to gain political power.]
 &lt;/br&gt;
 (link:&quot;Return to your story&quot;)[(set: $showFooter to true)(set: $showHeader to true)(goto: (history: )&#39;s last)]
-</tw-passagedata><tw-passagedata pid="57" name="Create Aristocrat" tags="" position="1162,137" size="100,100">{(set: $pcName to &quot;M. Aemilius Barbatus&quot;)
+</tw-passagedata><tw-passagedata pid="56" name="Create Aristocrat" tags="" position="1160,137" size="100,100">{(set: $pcName to &quot;M. Aemilius Barbatus&quot;)
 (set: $pcPraenomen to &quot;Marcus&quot;)
 (set: $pcNomen to &quot;Aemilius&quot;)
 (set: $pcCognomen to &quot;Barbatus&quot;)
@@ -1422,19 +1391,19 @@ DEV NOTE: THE STATS THAT HAVE SOME CURRENT IMPLEMENTATION IN THE GAME ARE BOLDED
 &lt;!-- character now starts with stats from 1-7 in the skill/ability stats (with 10 as max in game)--&gt;
 }
 
-Oratory: $tempOratory / $statMax
-Religion: $tempReligion / $statMax
-Martial: $tempMartialSkill / $statMax
-Legal: $tempLegalism / $statMax
-Strategy: $tempStrategy / $statMax
-Culture: $tempCulture / $statMax
-Economy: $tempEconomy / $statMax
+Oratory: $tempOratory / $skillMax
+Religion: $tempReligion / $skillMax
+Martial: $tempMartialSkill / $skillMax
+Legal: $tempLegalism / $skillMax
+Strategy: $tempStrategy / $skillMax
+Culture: $tempCulture / $skillMax
+Economy: $tempEconomy / $skillMax
 
 {(link: &quot;Start with this character&quot;)[
 (set: $oratory to $tempOratory)(set: $religion to $tempReligion)(set: $martialSkill to $tempMartialSkill)(set: $legalism to $tempLegalism)(set: $strategy to $tempStrategy)(set: $culture to $tempCulture)(set: $economy to $tempEconomy)(goto: &quot;Start&quot;)]}
 [[Try a new character-&gt;Create Aristocrat]]
 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;The rpg stats employed here seem the most effective way to represent that Roman aristocrats seeking successful political careers had several different, not mutually exclusive routes. Skill at pleading legal cases, whether defending future allies or prosecuting rivals; military virtus that was a foundational claim for serving the republic; exceptional piety to the gods; skillful estate management and the wealth that brought. See (link-reveal: &quot;J. McCall, &#39;Meaningful Choices (Twine Developer Diary Part 3)&#39; at Playthepast.org&quot;)[(open-url: &quot;https://www.playthepast.org/?p=5771&quot;) &lt;/em&gt;] and (link-reveal: &quot;J. McCall, &#39;Path of Honors: Towards a Model for Interactive History Texts with Twine&#39;&quot;)[(open-url: &quot;https://epoiesen.library.carleton.ca/2018/01/21/path-of-honors/&quot;)] at Epoiesen for more discussion.]</tw-passagedata><tw-passagedata pid="58" name="Milit svc new" tags="" position="2820,589" size="100,100">{&lt;-- --&gt;
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;††&lt;/span&gt;&quot;)[&lt;strong&gt;††&lt;/strong&gt;&lt;em&gt;Gameplay note:The rpg stats employed here seem the most effective way to represent that Roman aristocrats seeking successful political careers had several different, not mutually exclusive routes. Skill at pleading legal cases, whether defending future allies or prosecuting rivals; military virtus that was a foundational claim for serving the republic; exceptional piety to the gods; skillful estate management and the wealth that brought. See (link-reveal: &quot;J. McCall, &#39;Meaningful Choices (Twine Developer Diary Part 3)&#39; at Playthepast.org&quot;)[(open-url: &quot;https://www.playthepast.org/?p=5771&quot;) &lt;/em&gt;] and (link-reveal: &quot;J. McCall, &#39;Path of Honors: Towards a Model for Interactive History Texts with Twine&#39;&quot;)[(open-url: &quot;https://epoiesen.library.carleton.ca/2018/01/21/path-of-honors/&quot;)] at Epoiesen for more discussion.]</tw-passagedata><tw-passagedata pid="57" name="Milit svc new" tags="" position="2820,589" size="100,100">{&lt;-- --&gt;
 
 
 (set: $index to (random: 1,10))
@@ -1497,43 +1466,41 @@ You ponder the case for a moment, then respond:&lt;br&gt;
 
 
 
-</tw-passagedata><tw-passagedata pid="59" name="New Military Service" tags="" position="1963.6666666666667,1009.6666666666666" size="200,100">{
-&lt;!--this passage is called from New Year--&gt;
-&lt;!--test settings (set: $stipendia to 2) --&gt; 
-(if: $stipendia &gt; 4 and $virtus &gt; 4 and (random: 1,3) &gt; 1)
-[This year comes with a special honor. You are appointed to serve as a military tribune, one of the six ranking officers of a Roman legion. 
-[[Enter Military Tribunate-&gt;Military Tribune Choices]]]
-(else:)[(set: $milTribune to false)
-(if: $stipendia &gt; 0 and it &lt; 4)
-[(either: &quot;Still little more than a tyro, you enlist again to serve the Republic in the struggles against its enemies.&quot;, &quot;As a young ox learns from the experienced yoke-mate, you seek to learn more of the military life and enlist again.&quot;, &quot;Eager to prove yourself and serve the Republic, you enlist for another year.&quot;)]
-(else-if: $stipendia &gt; 3 and it &lt; 6)
-[(either: &quot;Neither a tyro nor a fully seasoned veteran, you are becoming quite familiar with the demands of military life as you sign up for another term of service.&quot;,&quot;Almost a regular in military life, you choose to build your skills further and serve this season.&quot;)]
-(else_if: $stipendia &gt; 5)
-[(either: &quot;At the age of $age, with $stipendia campaigns under your belt, you have become something of a veteran and you look towards the time when your service will end and you can continue your pursuit of distinction.&quot;,&quot;Over $stipendia campaigns, you have learnt the trade of the soldier, the craft of war. No stranger to the chaos, you join for another term in service to the Republic.&quot;)]
-]}
-You face a choice. Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the torque from the bloody corpse of the Gaul he had slain&quot;,&quot;Horatius Cocles, who single-handedly defended the bridge across the Tiber from hordes of Etruscans&quot;,&quot;Marcus Valerius Corvus, who followed the omen of the Raven and dispatched the Gallic champion&quot;,&quot;Marcus Claudius Marcellus, who slew an enemy king in a duel of commanders&quot;), you can (link: &quot;take risks&quot;)[(set: $riskyService to true)(goto: &quot;Battle&quot;)] to prove your virtus and hope to achieve glorious feats that will win you renown. Or, quite possibly, death.
-
-or
-
-You can simply do your duty but (link: &quot;avoid unnecessary risks.&quot;)[(set: $riskyService to false)(goto: &quot;Battle&quot;)] You will fulfill your obligations as a Roman cavalryman to the best of your ability but refuse to get swept away in the exaggerations of the old tales and get yourself killed without good reason.
-
-
-
+</tw-passagedata><tw-passagedata pid="58" name="New Military Service" tags="" position="1919,821" size="200,100">{&lt;!--this passage is called from New Year--&gt;
+&lt;!--test settings 
+(set: $stipendia to 5)
+(set: $virtus to 5)--&gt;
+&lt;!-- END DEBUG--&gt;
+(if: $stipendia &gt; 4 and $virtus &gt; 4 and (random: 1,3)&gt;1)
+[
+	This year comes with a &lt;span class=&quot;important&quot;&gt;special honor&lt;/span&gt;. You are appointed to serve as a [[military tribune-&gt;Military Tribune Choices]], one of the six ranking officers of a Roman legion. (set: $milTribune to true) 
+]
+(else:)
+[
+	(set: $milTribune to false)
+	(if: $stipendia &gt; 0 and it &lt; 4)
+	[(either: &quot;Still little more than a tyro, you enlist again to serve the Republic in the struggles against its enemies.&quot;, &quot;As a young ox learns from the experienced yoke-mate, you seek to learn more of the military life and enlist again.&quot;, &quot;Eager to prove yourself and serve the Republic, you enlist for another year.&quot;)]
+	(else-if: $stipendia &gt; 3 and it &lt; 6)
+	[(either: &quot;Neither a tyro nor a fully seasoned veteran, you are becoming quite familiar with the demands of military life as you sign up for another term of service.&quot;,&quot;Almost a regular in military life, you choose to build your skills further and serve this season.&quot;)]
+	(else_if: $stipendia &gt; 5)
+	[(either: &quot;At the age of $age, with $stipendia campaigns under your belt, you have become something of a veteran and you look towards the time when your service will end and you can continue your pursuit of distinction.&quot;,&quot;Over $stipendia campaigns, you have learnt the trade of the soldier, the craft of war. No stranger to the chaos, you join for another term in service to the Republic.&quot;)]
+&lt;p&gt;You face a choice. Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the torque from the bloody corpse of the Gaul he had slain&quot;,&quot;Horatius Cocles, who single-handedly defended the bridge across the Tiber from hordes of Etruscans&quot;,&quot;Marcus Valerius Corvus, who followed the omen of the Raven and dispatched the Gallic champion&quot;,&quot;Marcus Claudius Marcellus, who slew an enemy king in a duel of commanders&quot;), you can (link: &quot;take risks&quot;)[(set: $riskyService to true)(goto: &quot;Battle&quot;)] to prove your virtus and hope to achieve glorious feats that will win you renown but, quite possibly, death too.&lt;/p&gt;
+&lt;p&gt;
+Or, you can simply do your duty but (link: &quot;avoid unnecessary risks.&quot;)[(set: $riskyService to false)(goto: &quot;Battle&quot;)] You will fulfill your obligations as a Roman cavalryman to the best of your ability but refuse to get swept away in the exaggerations of the old tales and get yourself killed without good reason.&lt;/p&gt;
+]
+}
 &lt;!-- $yourBattleOutcome is the percentage dice roll to determine what happens during the PCs military service. Risky service more likely brings death and honors; cautious service is less likely to bring either. This value is checked later depending on the various battle outcomes--&gt;
 
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Polyb. 6.19 - asserts that a Roman must serve ten campaigns before holding any political office. He also notes that for the first four legions 14 tribunes are appointed from those with at least five years service, ten from those with ten years service. For a discussion of virtus and its role in Roman society, see J. McCall, &lt;i&gt;The Cavalry of the Roman Republic (Routledge 2001)&lt;/i&gt;, and M. McDonnell, &lt;i&gt;Roman Manliness (Cambridge 2006)&lt;/i&gt;&lt;/em&gt;]
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;††&lt;/span&gt;&quot;)[&lt;strong&gt;††&lt;/strong&gt;&lt;em&gt;Gameplay note: For each campaign season, the outcome of the player&#39;s service is determined by generating a random number from 1-100. To this number is added the player&#39;s Martial skill number. Taking risks  has a 20% chance of ending in death, but a greater chance to gain more virtus and popularity. Avoiding risks has a 10% chance to end in death.&lt;/em&gt;]
 
-
-
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Polyb. 6.19 - asserts that a Roman must serve 10 campaigns before holding any political office. He also notes that for the first four legions 14 tribunes are appointed from those with at least 5 years service, 10 from those with 10 years service. For a discussion of virtus and it&#39;s role in Roman society, see J. McCall, &lt;i&gt;The Cavalry of the Roman Republic (Routledge 2001)&lt;/i&gt;, and M. McDonnell, &lt;i&gt;Roman Manliness (Cambridge 2006)&lt;/i&gt;&lt;/em&gt;]
-
-
-</tw-passagedata><tw-passagedata pid="60" name="NEW Aedile Set Goals" tags="" position="1016,1314" size="100,100">{Though you are responsible for many tasks you are determined to make your mark and can only focus on two main obligations. Which will be your two main goals for the year (&lt;i&gt;select two&lt;/i&gt;)?
+</tw-passagedata><tw-passagedata pid="59" name="NEW Aedile Set Goals" tags="" position="1016,1314" size="100,100">{Though you are responsible for many tasks you are determined to make your mark and can only focus on two main obligations. Which will be your two main goals for the year (&lt;i&gt;select two&lt;/i&gt;)?
 [[(descriptions of obligations)-&gt;Aedile Obligations]]
 
 First goal:(cycling-link: bind $aedGoal1, &quot;correcting religious errors&quot;, &quot;rooting out corruption&quot;,&quot;building and beautification&quot;,&quot;ensuring affordable grain&quot;, &quot;championing the People&#39;s interests&quot;) 
 Second goal:(cycling-link: bind $aedGoal2, &quot;correcting religious errors&quot;, &quot;rooting out corruption&quot;,&quot;building and beautification&quot;,&quot;ensuring affordable grain&quot;, &quot;championing the People&#39;s interests&quot;)
 
-(link: &quot;Begin your year as aedile with these goals&quot;)[(if: $aedGoal1 is $aedGoal2)[(goto:&quot;NEW Aedile Set Goals&quot;)](else:)[(goto:&quot;Begin Aedileship&quot;)]]</tw-passagedata><tw-passagedata pid="61" name="Aedile Obligations" tags="" position="796,1418" size="100,100">Aediles have many ways to influence the people and city of Rome
+(link: &quot;Begin your year as aedile with these goals&quot;)[(if: $aedGoal1 is $aedGoal2)[(goto:&quot;NEW Aedile Set Goals&quot;)](else:)[(goto:&quot;Begin Aedileship&quot;)]]</tw-passagedata><tw-passagedata pid="60" name="Aedile Obligations" tags="" position="796,1418" size="100,100">Aediles have many ways to influence the people and city of Rome
 
 Aediles are charged with overseeing the public grain supply, the shipments of wheat to the city that feed the common citizens of Rome. This requires careful management to maintain adequate supply, which in tuern should keep prices manageable for the average citizen. Though the price of grain fluctuates beyond one person&#39;s control, a clever aedile can make arrangements with suppliers, take advantage of Roman influence and power abroad, and even use his own finances to lower the cost of grain and make it easier for common citizens to buy what they need.
 (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt; Liv mentions the aediles&#39; role in managing the city grain supply and influencing prices on several occasions: 10.11; 23.41; 30.26, 31.50; 33.42; 38.35&lt;/em&gt;]
@@ -1552,11 +1519,11 @@ Aediles are tasked with the maintenance of the public buildings and ways of the 
 (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Liv. 10.23, 10.33, 27.6, 29.38 31.50, 33.25, 33.42, 35.41, 38.35 list occasions when aediles placed statues or other adornments, or temples paid for from the fines of law-breakers. 
  &lt;/em&gt;]
 Of course, the gods must be honored in the right ways at the right times, or they will not favor Rome with their blessings. Sometimes the people, fearful of this or that foe, worried about this or that omen, delve into rituals and practices that will bring offense to the gods a ruin to the Republic. As an aedile it is appropriate for you to investigate and suppress such perversions as they occur. 
-(link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Liv 25.1 refers to an episode in the Second Punic War when &quot;In public, too— in the Forum and on the Capitol— there were crowds of women whose sacrifices and prayers to the gods did not follow traditional practice. Priests and oracle-mongers had taken possession of the minds of the public, and the numbers of such people were swollen by the rustic proletariat, who had been forced into the city, by poverty and fear, from fields that long years of war had left untilled and insecure. There was also easy money to be gained from the superstition of others, through an occupation its practitioners conducted as though it were legitimate. (Yardley trans.)
+(link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;Liv 25.1 refers to an episode in the Second Punic War when &quot;In public, too— in the Forum and on the Capitol— there were crowds of women whose sacrifices and prayers to the gods did not follow traditional practice. Priests and oracle-mongers had taken possession of the minds of the public, and the numbers of such people were swollen by the rustic proletariat, who had been forced into the city, by poverty and fear, from fields that long years of war had left untilled and insecure. There was also easy money to be gained from the superstition of others, through an occupation its practitioners conducted as though it were legitimate. (Yardley trans.)
 Liv. 39.14 when the senate decides to repress the cult of Bacchus in Rome, aediles are charged with the task of repression
  &lt;/em&gt;]
  Finally, Though not normally part of the purview of aediles, you can look for ways to promote the interests of the common people by providing them greater access to often difficult to obtain government and religious information, social opportunities such as seating at games, theaters, and festivals, and the like.
- (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;em&gt;The classic example of a populist aedile is Gnaeus Fulvius, aed. 304. According to Liv. 9.46, Fulvius had the civil laws, formerly kept away from the populace and in the possession of the priests, openly published for all to see. He also had a calendar displayed in multiple places in the forum so that everyone could know wat days were permitted for trials, assemblies, market, etc In Liv. 34.44 The senate orders the aediles to preserve seating for the senators separate from other Romans. Plut. Gaius Gracchus 12 indicates Gracchus as tribune ordered seats that other officials had built to rent out for a forum gladiatorial show to be removed so the poor could see the show -- I infer an aedile could have done something like this.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="62" name="OLD SERVICE OUTCOME TEXT" tags="" position="1828,1599" size="100,100">A&lt;!-- Old code with some writing Avoiding risky service has a 1/20 chance of ending in PC death 
+ (link: &quot;&lt;span class=&#39;footnoteSymbol&#39;&gt;†&lt;/span&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;The classic example of a populist aedile is Gnaeus Fulvius, aed. 304. According to Liv. 9.46, Fulvius had the civil laws, formerly kept away from the populace and in the possession of the priests, openly published for all to see. He also had a calendar displayed in multiple places in the forum so that everyone could know wat days were permitted for trials, assemblies, market, etc In Liv. 34.44 The senate orders the aediles to preserve seating for the senators separate from other Romans. Plut. Gaius Gracchus 12 indicates Gracchus as tribune ordered seats that other officials had built to rent out for a forum gladiatorial show to be removed so the poor could see the show -- I infer an aedile could have done something like this.&lt;/em&gt;]</tw-passagedata><tw-passagedata pid="61" name="OLD SERVICE OUTCOME TEXT" tags="" position="1828,1599" size="100,100">A&lt;!-- Old code with some writing Avoiding risky service has a 1/20 chance of ending in PC death 
 (if: $riskyService is true)[
 Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the torque from the bloody corpse of the Gaul he had slain&quot;,&quot;Horatius Cocles, who single-handedly defended the bridge across the Tiber from hordes of Etruscans&quot;,&quot;Marcus Valerius Corvus, who followed the omen of the Raven and dispatched the Gallic champion&quot;,&quot;Marcus Claudius Marcellus, who slew an enemy king in a duel of commanders&quot;), you are determined to push yourself to achieve glorious feats that will win you renown. Or, quite possibly, death.
 (set: $outcome to (Random:1,10))(if: $outcome is 1)[ You distinguish yourself in battle, earning the (link-replace: &quot;&lt;em class=&#39;term&#39;&gt;corona civica&lt;/em&gt;&quot;)[civic crown] for saving a fellow citizen&#39;s life. Sadly, the sword stroke meant for him ended your life instead, so you receive the award postumously (set: $honors&#39;s &quot;Corona Civica&quot; += 1)&lt;br&gt;
@@ -1566,7 +1533,7 @@ Like the Roman hero, (either: &quot;Titus Manlius Torquatus, who wrenched the to
 (link: &quot;&lt;strong&gt;†&lt;/strong&gt;&quot;)[&lt;strong&gt;†&lt;/strong&gt;&lt;em&gt;The exploits that can be listed in this passage of Titus Manlius Torquatus, Marcus Valerius Corvus, and the son of Titus Manlius Torquatus of the same name can be found in Livy 7.10; 7.26; 8.7. Horatius Cocles&#39; exploits are noted by Polybius 6.55. Marcellus&#39; duel with Britomartus and the spolia opima he won is noted in a numer of places including Plutarch, &lt;em&gt;Life of Marcellus&lt;/em&gt;, 6-8.&lt;/em&gt;]
 Risky service has a 1/10 chance of ending in PC death --&gt;] --&gt;
 }
-</tw-passagedata><tw-passagedata pid="63" name="Battle" tags="" position="2257.6666666666665,1414" size="100,100">&lt;!--check the date and generate appropriate enemies--&gt;
+</tw-passagedata><tw-passagedata pid="62" name="Battle" tags="" position="1937,1117" size="100,100">&lt;!--check the date and generate appropriate enemies--&gt;
 {(set: $weirdSpace to &quot; &quot;) This year, (either: &quot;it will be a fight against&quot;, &quot;your legion will be part of the force attacking&quot;, &quot;you and your comrades will revenge an ancient wrong by&quot;)
 (set: $randEnemy to (Random: 1,10))
 
@@ -1585,7 +1552,7 @@ Risky service has a 1/10 chance of ending in PC death --&gt;] --&gt;
 (set: $battleStartText to (either: $greekBattleStart&#39;s 1st, $greekBattleStart&#39;s 2nd)) 
 ]
 }
-&lt;!-- DATA --&gt;(set: $yourBattleOutcome to (random: 1,100))
+&lt;!-- DATA --&gt;(set: $yourBattleOutcome to (random: 1,100) + $martialSkill)
 $battleIntroText
 (set: $cavStance to (either: &quot;reserve&quot;,&quot;forward&quot;))(set: $cavFlank to (either: &quot;left&quot;,&quot;right&quot;))(if: $milTribune is true)[You take your position beside the soldiers you command and wait.](else:)[You take your place with the Roman cavalry on the $cavFlank flank and wait.]&lt;br&gt;
 The main battleline gives a shout and moves forward, eager to engage their $enemyArmy adversaries. (if: $milTribune is true)[ You lead your soldiers with grim determination.] $battleStartText
@@ -1629,10 +1596,10 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 		(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 20)&lt;!--20% chance to die--&gt;
-			[But the day has come when Mars must be paid. You stand at the front of a maniple of principes that is faltering. Bellowing words of command and encouragement you rally the men, then lead them back into battle. Once rallied the maniples to either side stiffen their resolve and push back on the enemy. Your heroic leadership saves the left of the battleline. But your fine armor and your air of command marks you to the enemy and you are dispatched by a spear thrust as you turn back to wave your soldiers on. Your [[funeral-&gt;My funeral]] awaits.
+			[But the day has come when Mars must be paid. You stand at the front of a maniple of faltering principes. Bellowing words of command and encouragement you rally the men, then lead them back into battle. Once rallied the maniples to either side stiffen their resolve and push back on the enemy. Your heroic leadership saves the left of the battleline. But your fine armor and your air of command marks you to the enemy and you are dispatched by a spear thrust as you turn back to wave your soldiers on. Your [[funeral-&gt;My funeral]] awaits.
 			]
 			(if: ($yourBattleOutcome &gt; 20) and ($yourBattleOutcome &lt;= 70))
-			[The Romans win the battle, and you led your men safely through a number of harrowing encounters with the enemy, increasing your reputation for virtus(set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
+			[The Romans won the battle, and you led your men safely through a number of harrowing encounters with the enemy, increasing your reputation for virtus(set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
 			]
 			(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
 			[The Roman victory is sealed and you win renown for your stalwart command. You are awarded the &lt;em&gt;Corona Civica&lt;/em&gt; for saving a fellow-soldier&#39;s life, an act that inspired your men to overcome all hardships. You have increase your reputation for virtus and popularity. (set: $honors&#39;s &quot;Corona Civica&quot; += 1) (set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
@@ -1680,7 +1647,7 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 		(if: $riskyService is true)&lt;!--PC picked risky service--&gt;
 		[
 			(if: $yourBattleOutcome &lt;= 20)&lt;!--20% chance to die--&gt;
-			[The day has come when Mars must be paid. You stand at the front of a maniple of principes that is faltering. Bellowing words of command and encouragement you rally the men, to no avail, however, as the Roman battleline collapses. Still your heroic leadership allows your men to retreat safely and live to fight another day. You, however, are dispatched by a spear thrust as you turn back to order your soldiers on. Your [[funeral-&gt;My funeral]] awaits.
+			[The day has come when Mars must be paid. You stand at the front of a maniple of (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;principes&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;heavy infantry in the prime of life&lt;/em&gt;&quot;) that is faltering. Bellowing words of command and encouragement you rally the men, to no avail, however, as the Roman battleline collapses. Still your heroic leadership allows your men to retreat safely and live to fight another day. You, however, are dispatched by a spear thrust as you turn back to order your soldiers on. Your [[funeral-&gt;My funeral]] awaits.
 			]
 			(if: ($yourBattleOutcome &gt; 20) and ($yourBattleOutcome &lt;= 70))
 			[The Romans lost this battle, and you lead your men in an orderly retreat. Guiding them safely through a harrowing withdrawl, increasing your reputation for virtus.(set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]
@@ -1696,7 +1663,7 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 			(if: ($yourBattleOutcome &gt; 10) and ($yourBattleOutcome &lt;= 90))
 			[You lead capably, and do not shirk your responsibilities, but let the men take the greatest risks. When the army is defeated, you join your men in retreat, safely reaching the camp at last (set: $stipendia += 1)And so the [[year passes.-&gt;End of Year]]]
 			(if: $yourBattleOutcome &gt; 90) &lt;!-- Heroic service in defeat--&gt;
-			[Then a day comes when you must rise to the challenge or lose everything. The Roman army is wavering in defeat. Your section of the battleline is on the verge of a headlong panic. But your steady words of command and your heroic presence, inspire the men to a fighting withdrawl when all are fleeing around them. Your example has saved many lives, and earned you a greater reputation for virtus.  (set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
+			[Then a day comes when you must rise to the challenge or lose everything. The Roman army is wavering in defeat. Your section of the battleline is on the verge of a headlong panic. But your steady words of command and your heroic presence, inspire the men to a fighting withdrawal when all are fleeing around them. Your example has saved many lives, and earned you a greater reputation for virtus.  (set: $virtus+=1)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 		]
 	]
 	(else-if: $milTribune is false)
@@ -1710,7 +1677,7 @@ The main battleline gives a shout and moves forward, eager to engage their $enem
 			[Though the Roman army is defeated, your fiercesome fighting with the cavalry is noted. This increases your reputation for virtus.(set: $virtus+=1)(set: $stipendia += 1)
 And so the [[year passes.-&gt;End of Year]]]
 			(if: $yourBattleOutcome &gt; 70) &lt;!-- Heroic victory--&gt;
-			[You are heroic in the midst of defeat, risking your life for your comrades and, as a result, earning the &lt;em class=&#39;term&#39;&gt;Corona Civica&lt;/em&gt;. Your reputation for virtus and your popularity have increased.(set: $honors&#39;s &quot;Corona Civica&quot; += 1)(set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
+			[You are heroic in the midst of defeat, risking your life for your comrades and, as a result, earning the (cycling-link: &quot;&lt;em class=&#39;term&#39;&gt;corona civica&lt;/em&gt;&quot;, &quot;&lt;em class=&#39;definition&#39;&gt;civic crown&lt;/em&gt;&quot;). Your reputation for virtus and your popularity have increased.(set: $honors&#39;s &quot;Corona Civica&quot; += 1)(set: $virtus+=2)(set: $popularity+=2)(set: $stipendia += 1) And so the [[year passes.-&gt;End of Year]]]
 		]
 		(if: $riskyService is false)&lt;!--PC picked risky service--&gt;
 		[
@@ -1728,7 +1695,7 @@ And so the [[year passes.-&gt;End of Year]]]
 }
 
 
-</tw-passagedata><tw-passagedata pid="64" name="Omen Data" tags="startup" position="1544,95" size="100,100">{(set: $omenList1 to (array: 
+</tw-passagedata><tw-passagedata pid="63" name="Omen Data" tags="startup" position="1544,95" size="100,100">{(set: $omenList1 to (array: 
 &quot;stones plummeted from the sky like rain&quot;, 
 &quot;a number of Romans have been struck by lightning&quot;, 
 &quot;a babe, no more than six months of age, shouted &#39;Triumph&#39; at the market&quot;, 
@@ -1763,7 +1730,37 @@ And so the [[year passes.-&gt;End of Year]]]
 &quot;At Cales chalk fell from the sky like rain&quot;,
 &quot;Lightning struck the temple of Vulcan near the Campus Martius&quot;,
 &quot;In Sicily a cow talked&quot;,
-&quot;A baby not yet born cried, &#39;Triumph!&#39; from its mother&#39;s womb&quot;))}</tw-passagedata></tw-storydata>
+&quot;A baby not yet born cried, &#39;Triumph!&#39; from its mother&#39;s womb&quot;))}</tw-passagedata><tw-passagedata pid="64" name="Character Data" tags="startup" position="1869,98" size="100,100">{(set: $initSkillPoints to 4)
+(set: $showFooter to true)
+(set: $showHeader to false)
+(set: $age to 17)
+&lt;!--Skills--&gt;
+(set: $skillMax to 10)
+(set: $oratory to 0)
+(set: $religion to 0)
+(set: $martialSkill to 0)
+(set: $legalism to 0)
+(set: $strategy to 0)
+(set: $culture to 0)
+(set: $economy to 0)
+&lt;!--Rankings--&gt;
+(set: $virtus to 0) 
+(set: $dignitas to 0)
+(set: $popularity to 0)
+(set: $piety to 0) 
+&lt;!--Hidden Stats--&gt;
+(set: $invidia to 0) 
+(set: $corruption to 0)
+(set: $brutality to 0) 
+(set: $populism to 0)
+(set: $income to 100000)
+(set: $stipendia to 0) 
+(set: $numOffices to 0)}</tw-passagedata><tw-passagedata pid="65" name="Untitled Passage" tags="" position="1841,1273" size="100,100">
+	
+
+
+
+</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
